@@ -42,3 +42,14 @@ __all__ += ['ScenarioName', 'EnvironmentScenarioRequest', 'ScenarioEnvironmentAd
 from .environment import EnvironmentalCondition
 from .snapshots import build_snapshot, validate_snapshot, parse_snapshot, export_snapshot
 __all__ += ['EnvironmentalCondition', 'build_snapshot', 'validate_snapshot', 'parse_snapshot', 'export_snapshot']
+
+
+from .wbgt import EnvironmentalSample, ReadingQuality, WBGTResult, calculate_wbgt
+from .environmental_simulator import EnvironmentalSimulator, EnvironmentalForcing, ZoneEnvironmentConfig
+from .integrated_engine import IntegratedSimulationEngine, IntegratedState, EngineConfig, EngineCommand
+from .engineering_scenarios import (EngineeringScenarioName, ScenarioDefinition,
+                                    EngineeringScenarioRunner, load_scenario)
+__all__ += ['EnvironmentalSample', 'ReadingQuality', 'WBGTResult', 'calculate_wbgt',
+            'EnvironmentalSimulator', 'EnvironmentalForcing', 'ZoneEnvironmentConfig',
+            'IntegratedSimulationEngine', 'IntegratedState', 'EngineConfig', 'EngineCommand',
+            'EngineeringScenarioName', 'ScenarioDefinition', 'EngineeringScenarioRunner', 'load_scenario']

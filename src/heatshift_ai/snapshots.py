@@ -48,7 +48,9 @@ def validate_snapshot(data: dict[str, Any]) -> SimulationState:
         if data['source'] != 'synthetic_simulator':
             raise ValueError('source must be synthetic_simulator')
         seconds(data['simulated_time_seconds'], 'simulated_time_seconds')
-        ScenarioName(data['scenario'])
+        supported = {s.value for s in ScenarioName} | {'NORMAL_OPERATION', 'HEAT_ESCALATION', 'MULTI_ZONE_HEAT', 'NO_ELIGIBLE_REPLACEMENT', 'SENSOR_FAILURE'}
+        if data['scenario'] not in supported:
+            raise ValueError('unknown scenario')
         zones = []
         for entry in data['zones']:
             zones.append(Zone(zone_id=entry['zone_id'], kind=entry['kind']))
