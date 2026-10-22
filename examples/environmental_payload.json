@@ -1,0 +1,47 @@
+{
+  "conditions": [
+    {
+      "name": "air_temperature_c",
+      "unit": "degC",
+      "value": 30.0
+    },
+    {
+      "name": "relative_humidity_percent",
+      "unit": "percent",
+      "value": 45.0
+    },
+    {
+      "name": "globe_temperature_c",
+      "unit": "degC",
+      "value": 36.0
+    },
+    {
+      "name": "air_velocity_m_s",
+      "unit": "m/s",
+      "value": 1.2
+    },
+    {
+      "name": "natural_wet_bulb_c",
+      "unit": "degC",
+      "value": 23.0
+    }
+  ],
+  "elapsed_seconds": 0,
+  "method": "ISO7243_0.7Tnw+0.2Tg+0.1Ta",
+  "source": "simulated",
+  "source_metadata": {
+    "generator_version": "1",
+    "model_validation": "engineering_demo_not_field_validated",
+    "natural_wet_bulb_method": "explicit_simulated_channel_not_psychrometric_estimate",
+    "observation_provenance": "simulated_sensor_observations",
+    "observed_at_seconds": "0",
+    "provider": "EnvironmentalSimulator",
+    "quality": "good",
+    "quality_reason": "synthetic channel trajectory",
+    "solar_exposure": "true",
+    "wbgt_input_source": "simulated",
+    "wbgt_kind": "calculated"
+  },
+  "wbgt_celsius": 26.299999999999997,
+  "zone_id": "ZONE_A"
+}
