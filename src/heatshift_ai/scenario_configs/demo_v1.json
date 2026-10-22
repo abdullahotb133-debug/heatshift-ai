@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "scenarios": [
+    {"scenario_id":"NORMAL_OPERATION","seed":42,"start_seconds":0,"duration_seconds":120,"zone_heat":[],"operation":"none"},
+    {"scenario_id":"HEAT_ESCALATION","seed":42,"start_seconds":0,"duration_seconds":120,"zone_heat":[["ZONE_A",0,6]],"operation":"none"},
+    {"scenario_id":"MULTI_ZONE_HEAT","seed":42,"start_seconds":0,"duration_seconds":120,"zone_heat":[["ZONE_A",0,6],["ZONE_B",0,3],["ZONE_C",0,8]],"operation":"none"},
+    {"scenario_id":"RECOVERY","seed":42,"start_seconds":0,"duration_seconds":120,"zone_heat":[["ZONE_A",6,0],["ZONE_B",3,0],["ZONE_C",8,0]],"operation":"rest_cycle","target_task_id":"T-01","rest_zone_id":"REST_ZONE"},
+    {"scenario_id":"NO_ELIGIBLE_REPLACEMENT","seed":42,"start_seconds":0,"duration_seconds":120,"zone_heat":[],"operation":"unavailable_for_task","target_task_id":"T-04"},
+    {"scenario_id":"SENSOR_FAILURE","seed":42,"start_seconds":0,"duration_seconds":120,"zone_heat":[],"operation":"none","failure_zone_id":"ZONE_A","failure_start_seconds":30,"failure_duration_seconds":60,"failure_mode":"missing"}
+  ]
+}
