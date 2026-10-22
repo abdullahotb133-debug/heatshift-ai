@@ -155,6 +155,16 @@ class IntegratedSimulationEngine:
             self._manager,self._environment,self._frame=self._create()
             return self._frame
 
+    def fork(self):
+        """Detached transaction candidate; preserves the canonical model and clock."""
+        with self._lock:
+            self._require()
+            candidate=IntegratedSimulationEngine(self.config,environment_factory=self._factory)
+            candidate._manager=self._fork_manager()
+            candidate._environment=deepcopy(self._environment)
+            candidate._frame=self._frame
+            return candidate
+
     def reset(self):
         with self._lock:
             candidate=self._create()

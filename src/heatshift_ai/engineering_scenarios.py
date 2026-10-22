@@ -133,6 +133,32 @@ class EngineeringScenarioRunner:
         self._events=(ScenarioLifecycleEvent(event_id=1,elapsed_seconds=0,action='started',scenario_id=self.definition.scenario_id.value),)
         return engine.get_state()
 
+    def fork(self):
+        """Detached scenario cursor and engine for service-level transactions."""
+        candidate=EngineeringScenarioRunner(self.definition,config=self.config)
+        candidate.engine=self.engine.fork()
+        candidate._script,candidate._cursor=self._script,self._cursor
+        candidate._running,candidate._events=self._running,self._events
+        return candidate
+
+    def activate_on(self, engine):
+        """Activate explicit inputs at current simulated time, preserving history."""
+        if self.engine is not None: raise ValueError('scenario already started')
+        now=engine.get_state().simulation.time.elapsed_seconds
+        if self.definition.start_seconds!=now: raise ValueError('scenario start must match current time')
+        if engine.config!=self.config: raise ValueError('scenario engine configuration mismatch')
+        candidate=engine.fork()
+        candidate.replace_environment(EnvironmentalSimulator(seed=self.config.seed,
+            zones=self.config.environment_zones,forcing=self.definition.forcing()))
+        script=self._script_for(candidate)
+        due=tuple(command for at,command in script if at==now)
+        if due: candidate.execute_batch(due)
+        self.engine,self._script,self._cursor=candidate,script,len(due)
+        self._running=True
+        self._events=(ScenarioLifecycleEvent(event_id=1,elapsed_seconds=now,action='started',
+            scenario_id=self.definition.scenario_id.value),)
+        return candidate.get_state()
+
     def reset(self):
         # Build in a temporary runner first; failure leaves current run untouched.
         candidate=EngineeringScenarioRunner(self.definition,config=self.config)
