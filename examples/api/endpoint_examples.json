@@ -55,8 +55,10 @@
       "events": [
         {
           "action": "assign_task",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-1",
+          "event_id": "v0-worker-1",
           "new_worker": {
             "acclimatization_status": "acclimatized",
             "availability_status": "available",
@@ -75,6 +77,7 @@
             "work_status": "idle",
             "worker_id": "W-07"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "acclimatized",
             "availability_status": "available",
@@ -99,8 +102,10 @@
         },
         {
           "action": "start_work",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-2",
+          "event_id": "v0-worker-2",
           "new_worker": {
             "acclimatization_status": "acclimatized",
             "availability_status": "available",
@@ -119,6 +124,7 @@
             "work_status": "working",
             "worker_id": "W-07"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "acclimatized",
             "availability_status": "available",
@@ -143,8 +149,10 @@
         },
         {
           "action": "assign_task",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-3",
+          "event_id": "v0-worker-3",
           "new_worker": {
             "acclimatization_status": "not_acclimatized",
             "availability_status": "available",
@@ -163,6 +171,7 @@
             "work_status": "idle",
             "worker_id": "W-01"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "not_acclimatized",
             "availability_status": "available",
@@ -187,8 +196,10 @@
         },
         {
           "action": "start_work",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-4",
+          "event_id": "v0-worker-4",
           "new_worker": {
             "acclimatization_status": "not_acclimatized",
             "availability_status": "available",
@@ -207,6 +218,7 @@
             "work_status": "working",
             "worker_id": "W-01"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "not_acclimatized",
             "availability_status": "available",
@@ -231,8 +243,10 @@
         },
         {
           "action": "assign_task",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-5",
+          "event_id": "v0-worker-5",
           "new_worker": {
             "acclimatization_status": "acclimatized",
             "availability_status": "available",
@@ -250,6 +264,7 @@
             "work_status": "idle",
             "worker_id": "W-03"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "acclimatized",
             "availability_status": "available",
@@ -273,8 +288,10 @@
         },
         {
           "action": "start_work",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-6",
+          "event_id": "v0-worker-6",
           "new_worker": {
             "acclimatization_status": "acclimatized",
             "availability_status": "available",
@@ -292,6 +309,7 @@
             "work_status": "working",
             "worker_id": "W-03"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "acclimatized",
             "availability_status": "available",
@@ -315,8 +333,10 @@
         },
         {
           "action": "assign_task",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-7",
+          "event_id": "v0-worker-7",
           "new_worker": {
             "acclimatization_status": "unknown",
             "availability_status": "available",
@@ -334,6 +354,7 @@
             "work_status": "idle",
             "worker_id": "W-09"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "unknown",
             "availability_status": "available",
@@ -357,8 +378,10 @@
         },
         {
           "action": "start_work",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-8",
+          "event_id": "v0-worker-8",
           "new_worker": {
             "acclimatization_status": "unknown",
             "availability_status": "available",
@@ -376,6 +399,7 @@
             "work_status": "working",
             "worker_id": "W-09"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "unknown",
             "availability_status": "available",
@@ -399,8 +423,10 @@
         },
         {
           "action": "assign_task",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-9",
+          "event_id": "v0-worker-9",
           "new_worker": {
             "acclimatization_status": "not_acclimatized",
             "availability_status": "available",
@@ -418,6 +444,7 @@
             "work_status": "idle",
             "worker_id": "W-02"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "not_acclimatized",
             "availability_status": "available",
@@ -441,8 +468,10 @@
         },
         {
           "action": "start_work",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-10",
+          "event_id": "v0-worker-10",
           "new_worker": {
             "acclimatization_status": "not_acclimatized",
             "availability_status": "available",
@@ -460,6 +489,7 @@
             "work_status": "working",
             "worker_id": "W-02"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "not_acclimatized",
             "availability_status": "available",
@@ -483,8 +513,10 @@
         },
         {
           "action": "assign_task",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-11",
+          "event_id": "v0-worker-11",
           "new_worker": {
             "acclimatization_status": "unknown",
             "availability_status": "available",
@@ -502,6 +534,7 @@
             "work_status": "idle",
             "worker_id": "W-05"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "unknown",
             "availability_status": "available",
@@ -525,8 +558,10 @@
         },
         {
           "action": "start_work",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-12",
+          "event_id": "v0-worker-12",
           "new_worker": {
             "acclimatization_status": "unknown",
             "availability_status": "available",
@@ -544,6 +579,7 @@
             "work_status": "working",
             "worker_id": "W-05"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "unknown",
             "availability_status": "available",
@@ -587,6 +623,8 @@
       },
       "scenario_phase": "active",
       "schema_version": "1.0",
+      "simulated_at": "2026-01-01T00:00:00Z",
+      "simulation_epoch": "2026-01-01T00:00:00Z",
       "simulation_id": "SIM-001",
       "source": "synthetic_simulator",
       "state_version": 0,
@@ -685,6 +723,7 @@
         }
       ],
       "tick_seconds": 10,
+      "time_basis": "simulation_epoch",
       "time_unit": "s",
       "valid": true,
       "workers": [
@@ -895,6 +934,7 @@
             ],
             "elapsed_seconds": 0,
             "method": "ISO7243_0.7Tnw+0.2Tg+0.1Ta",
+            "observed_at": "2026-01-01T00:00:00Z",
             "observed_at_seconds": 0,
             "quality": "good",
             "source": "simulated",
@@ -950,6 +990,7 @@
             ],
             "elapsed_seconds": 0,
             "method": "ISO7243_0.7Tnw+0.3Tg",
+            "observed_at": "2026-01-01T00:00:00Z",
             "observed_at_seconds": 0,
             "quality": "good",
             "source": "simulated",
@@ -1005,6 +1046,7 @@
             ],
             "elapsed_seconds": 0,
             "method": "ISO7243_0.7Tnw+0.2Tg+0.1Ta",
+            "observed_at": "2026-01-01T00:00:00Z",
             "observed_at_seconds": 0,
             "quality": "good",
             "source": "simulated",
@@ -1060,6 +1102,7 @@
             ],
             "elapsed_seconds": 0,
             "method": "ISO7243_0.7Tnw+0.3Tg",
+            "observed_at": "2026-01-01T00:00:00Z",
             "observed_at_seconds": 0,
             "quality": "good",
             "source": "simulated",
@@ -1126,6 +1169,7 @@
             ],
             "elapsed_seconds": 0,
             "method": "ISO7243_0.7Tnw+0.2Tg+0.1Ta",
+            "observed_at": "2026-01-01T00:00:00Z",
             "observed_at_seconds": 0,
             "quality": "good",
             "source": "simulated",
@@ -1181,6 +1225,7 @@
             ],
             "elapsed_seconds": 0,
             "method": "ISO7243_0.7Tnw+0.3Tg",
+            "observed_at": "2026-01-01T00:00:00Z",
             "observed_at_seconds": 0,
             "quality": "good",
             "source": "simulated",
@@ -1236,6 +1281,7 @@
             ],
             "elapsed_seconds": 0,
             "method": "ISO7243_0.7Tnw+0.2Tg+0.1Ta",
+            "observed_at": "2026-01-01T00:00:00Z",
             "observed_at_seconds": 0,
             "quality": "good",
             "source": "simulated",
@@ -1291,6 +1337,7 @@
             ],
             "elapsed_seconds": 0,
             "method": "ISO7243_0.7Tnw+0.3Tg",
+            "observed_at": "2026-01-01T00:00:00Z",
             "observed_at_seconds": 0,
             "quality": "good",
             "source": "simulated",
@@ -1317,9 +1364,12 @@
         }
       ],
       "schema_version": "1.0",
+      "simulated_at": "2026-01-01T00:00:00Z",
+      "simulation_epoch": "2026-01-01T00:00:00Z",
       "simulation_id": "SIM-001",
       "source": "synthetic_simulator",
       "state_version": 0,
+      "time_basis": "simulation_epoch",
       "time_unit": "s"
     },
     "status": 200
@@ -1507,9 +1557,12 @@
         }
       ],
       "schema_version": "1.0",
+      "simulated_at": "2026-01-01T00:00:00Z",
+      "simulation_epoch": "2026-01-01T00:00:00Z",
       "simulation_id": "SIM-001",
       "source": "synthetic_simulator",
       "state_version": 0,
+      "time_basis": "simulation_epoch",
       "time_unit": "s"
     },
     "status": 200
@@ -1615,9 +1668,12 @@
         }
       ],
       "schema_version": "1.0",
+      "simulated_at": "2026-01-01T00:00:00Z",
+      "simulation_epoch": "2026-01-01T00:00:00Z",
       "simulation_id": "SIM-001",
       "source": "synthetic_simulator",
       "state_version": 0,
+      "time_basis": "simulation_epoch",
       "time_unit": "s"
     },
     "status": 200
@@ -1659,6 +1715,7 @@
           ],
           "elapsed_seconds": 0,
           "method": "ISO7243_0.7Tnw+0.2Tg+0.1Ta",
+          "observed_at": "2026-01-01T00:00:00Z",
           "observed_at_seconds": 0,
           "quality": "good",
           "source": "simulated",
@@ -1710,6 +1767,7 @@
           ],
           "elapsed_seconds": 0,
           "method": "ISO7243_0.7Tnw+0.3Tg",
+          "observed_at": "2026-01-01T00:00:00Z",
           "observed_at_seconds": 0,
           "quality": "good",
           "source": "simulated",
@@ -1761,6 +1819,7 @@
           ],
           "elapsed_seconds": 0,
           "method": "ISO7243_0.7Tnw+0.2Tg+0.1Ta",
+          "observed_at": "2026-01-01T00:00:00Z",
           "observed_at_seconds": 0,
           "quality": "good",
           "source": "simulated",
@@ -1812,6 +1871,7 @@
           ],
           "elapsed_seconds": 0,
           "method": "ISO7243_0.7Tnw+0.3Tg",
+          "observed_at": "2026-01-01T00:00:00Z",
           "observed_at_seconds": 0,
           "quality": "good",
           "source": "simulated",
@@ -1835,9 +1895,12 @@
         }
       ],
       "schema_version": "1.0",
+      "simulated_at": "2026-01-01T00:00:00Z",
+      "simulation_epoch": "2026-01-01T00:00:00Z",
       "simulation_id": "SIM-001",
       "source": "synthetic_simulator",
       "state_version": 0,
+      "time_basis": "simulation_epoch",
       "time_unit": "s"
     },
     "status": 200
@@ -2003,9 +2066,12 @@
         }
       ],
       "schema_version": "1.0",
+      "simulated_at": "2026-01-01T00:00:00Z",
+      "simulation_epoch": "2026-01-01T00:00:00Z",
       "simulation_id": "SIM-001",
       "source": "synthetic_simulator",
       "state_version": 0,
+      "time_basis": "simulation_epoch",
       "time_unit": "s"
     },
     "status": 200
@@ -2019,8 +2085,10 @@
       "items": [
         {
           "action": "assign_task",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-1",
+          "event_id": "v0-worker-1",
           "new_worker": {
             "acclimatization_status": "acclimatized",
             "availability_status": "available",
@@ -2039,6 +2107,7 @@
             "work_status": "idle",
             "worker_id": "W-07"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "acclimatized",
             "availability_status": "available",
@@ -2063,8 +2132,10 @@
         },
         {
           "action": "start_work",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-2",
+          "event_id": "v0-worker-2",
           "new_worker": {
             "acclimatization_status": "acclimatized",
             "availability_status": "available",
@@ -2083,6 +2154,7 @@
             "work_status": "working",
             "worker_id": "W-07"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "acclimatized",
             "availability_status": "available",
@@ -2107,8 +2179,10 @@
         },
         {
           "action": "assign_task",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-3",
+          "event_id": "v0-worker-3",
           "new_worker": {
             "acclimatization_status": "not_acclimatized",
             "availability_status": "available",
@@ -2127,6 +2201,7 @@
             "work_status": "idle",
             "worker_id": "W-01"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "not_acclimatized",
             "availability_status": "available",
@@ -2151,8 +2226,10 @@
         },
         {
           "action": "start_work",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-4",
+          "event_id": "v0-worker-4",
           "new_worker": {
             "acclimatization_status": "not_acclimatized",
             "availability_status": "available",
@@ -2171,6 +2248,7 @@
             "work_status": "working",
             "worker_id": "W-01"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "not_acclimatized",
             "availability_status": "available",
@@ -2195,8 +2273,10 @@
         },
         {
           "action": "assign_task",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-5",
+          "event_id": "v0-worker-5",
           "new_worker": {
             "acclimatization_status": "acclimatized",
             "availability_status": "available",
@@ -2214,6 +2294,7 @@
             "work_status": "idle",
             "worker_id": "W-03"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "acclimatized",
             "availability_status": "available",
@@ -2237,8 +2318,10 @@
         },
         {
           "action": "start_work",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-6",
+          "event_id": "v0-worker-6",
           "new_worker": {
             "acclimatization_status": "acclimatized",
             "availability_status": "available",
@@ -2256,6 +2339,7 @@
             "work_status": "working",
             "worker_id": "W-03"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "acclimatized",
             "availability_status": "available",
@@ -2279,8 +2363,10 @@
         },
         {
           "action": "assign_task",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-7",
+          "event_id": "v0-worker-7",
           "new_worker": {
             "acclimatization_status": "unknown",
             "availability_status": "available",
@@ -2298,6 +2384,7 @@
             "work_status": "idle",
             "worker_id": "W-09"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "unknown",
             "availability_status": "available",
@@ -2321,8 +2408,10 @@
         },
         {
           "action": "start_work",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-8",
+          "event_id": "v0-worker-8",
           "new_worker": {
             "acclimatization_status": "unknown",
             "availability_status": "available",
@@ -2340,6 +2429,7 @@
             "work_status": "working",
             "worker_id": "W-09"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "unknown",
             "availability_status": "available",
@@ -2363,8 +2453,10 @@
         },
         {
           "action": "assign_task",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-9",
+          "event_id": "v0-worker-9",
           "new_worker": {
             "acclimatization_status": "not_acclimatized",
             "availability_status": "available",
@@ -2382,6 +2474,7 @@
             "work_status": "idle",
             "worker_id": "W-02"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "not_acclimatized",
             "availability_status": "available",
@@ -2405,8 +2498,10 @@
         },
         {
           "action": "start_work",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-10",
+          "event_id": "v0-worker-10",
           "new_worker": {
             "acclimatization_status": "not_acclimatized",
             "availability_status": "available",
@@ -2424,6 +2519,7 @@
             "work_status": "working",
             "worker_id": "W-02"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "not_acclimatized",
             "availability_status": "available",
@@ -2447,8 +2543,10 @@
         },
         {
           "action": "assign_task",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-11",
+          "event_id": "v0-worker-11",
           "new_worker": {
             "acclimatization_status": "unknown",
             "availability_status": "available",
@@ -2466,6 +2564,7 @@
             "work_status": "idle",
             "worker_id": "W-05"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "unknown",
             "availability_status": "available",
@@ -2489,8 +2588,10 @@
         },
         {
           "action": "start_work",
+          "after_state_version": 0,
+          "before_state_version": 0,
           "elapsed_seconds": 0,
-          "event_id": "initial-worker-12",
+          "event_id": "v0-worker-12",
           "new_worker": {
             "acclimatization_status": "unknown",
             "availability_status": "available",
@@ -2508,6 +2609,7 @@
             "work_status": "working",
             "worker_id": "W-05"
           },
+          "occurred_at": "2026-01-01T00:00:00Z",
           "old_worker": {
             "acclimatization_status": "unknown",
             "availability_status": "available",
@@ -2531,9 +2633,12 @@
         }
       ],
       "schema_version": "1.0",
+      "simulated_at": "2026-01-01T00:00:00Z",
+      "simulation_epoch": "2026-01-01T00:00:00Z",
       "simulation_id": "SIM-001",
       "source": "synthetic_simulator",
       "state_version": 0,
+      "time_basis": "simulation_epoch",
       "time_unit": "s"
     },
     "status": 200
@@ -2553,6 +2658,8 @@
       "simulation_id": "SIM-001"
     },
     "response": {
+      "after_state_version": 1,
+      "before_state_version": 0,
       "elapsed_seconds": 10,
       "event_ids": [
         "api-1"
@@ -2560,6 +2667,8 @@
       "idempotency_key": "example-0",
       "instance_id": "example-instance",
       "schema_version": "1.0",
+      "simulated_at": "2026-01-01T00:00:10Z",
+      "simulation_epoch": "2026-01-01T00:00:00Z",
       "simulation_id": "SIM-001",
       "snapshot": {
         "assignments": [
@@ -2604,8 +2713,10 @@
         "events": [
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-1",
+            "event_id": "v0-worker-1",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -2624,6 +2735,7 @@
               "work_status": "idle",
               "worker_id": "W-07"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -2648,8 +2760,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-2",
+            "event_id": "v0-worker-2",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -2668,6 +2782,7 @@
               "work_status": "working",
               "worker_id": "W-07"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -2692,8 +2807,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-3",
+            "event_id": "v0-worker-3",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -2712,6 +2829,7 @@
               "work_status": "idle",
               "worker_id": "W-01"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -2736,8 +2854,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-4",
+            "event_id": "v0-worker-4",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -2756,6 +2876,7 @@
               "work_status": "working",
               "worker_id": "W-01"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -2780,8 +2901,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-5",
+            "event_id": "v0-worker-5",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -2799,6 +2922,7 @@
               "work_status": "idle",
               "worker_id": "W-03"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -2822,8 +2946,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-6",
+            "event_id": "v0-worker-6",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -2841,6 +2967,7 @@
               "work_status": "working",
               "worker_id": "W-03"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -2864,8 +2991,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-7",
+            "event_id": "v0-worker-7",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -2883,6 +3012,7 @@
               "work_status": "idle",
               "worker_id": "W-09"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -2906,8 +3036,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-8",
+            "event_id": "v0-worker-8",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -2925,6 +3057,7 @@
               "work_status": "working",
               "worker_id": "W-09"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -2948,8 +3081,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-9",
+            "event_id": "v0-worker-9",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -2967,6 +3102,7 @@
               "work_status": "idle",
               "worker_id": "W-02"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -2990,8 +3126,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-10",
+            "event_id": "v0-worker-10",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -3009,6 +3147,7 @@
               "work_status": "working",
               "worker_id": "W-02"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -3032,8 +3171,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-11",
+            "event_id": "v0-worker-11",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -3051,6 +3192,7 @@
               "work_status": "idle",
               "worker_id": "W-05"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -3074,8 +3216,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-12",
+            "event_id": "v0-worker-12",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -3093,6 +3237,7 @@
               "work_status": "working",
               "worker_id": "W-05"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -3116,9 +3261,12 @@
           },
           {
             "action": "tick",
+            "after_state_version": 1,
+            "before_state_version": 0,
             "elapsed_seconds": 10,
             "event_id": "api-1",
             "new_worker": null,
+            "occurred_at": "2026-01-01T00:00:10Z",
             "old_worker": null,
             "reason": "explicit HTTP request",
             "source": "api_command",
@@ -3146,6 +3294,8 @@
         },
         "scenario_phase": "active",
         "schema_version": "1.0",
+        "simulated_at": "2026-01-01T00:00:10Z",
+        "simulation_epoch": "2026-01-01T00:00:00Z",
         "simulation_id": "SIM-001",
         "source": "synthetic_simulator",
         "state_version": 1,
@@ -3244,6 +3394,7 @@
           }
         ],
         "tick_seconds": 10,
+        "time_basis": "simulation_epoch",
         "time_unit": "s",
         "valid": true,
         "workers": [
@@ -3454,6 +3605,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.2Tg+0.1Ta",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -3509,6 +3661,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.3Tg",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -3564,6 +3717,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.2Tg+0.1Ta",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -3619,6 +3773,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.3Tg",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -3648,6 +3803,7 @@
       "source": "synthetic_simulator",
       "state_version": 1,
       "status": "applied",
+      "time_basis": "simulation_epoch",
       "time_unit": "s"
     },
     "status": 200
@@ -3666,6 +3822,8 @@
       "simulation_id": "SIM-001"
     },
     "response": {
+      "after_state_version": 2,
+      "before_state_version": 1,
       "elapsed_seconds": 10,
       "event_ids": [
         "api-2"
@@ -3673,6 +3831,8 @@
       "idempotency_key": "example-1",
       "instance_id": "example-instance",
       "schema_version": "1.0",
+      "simulated_at": "2026-01-01T00:00:10Z",
+      "simulation_epoch": "2026-01-01T00:00:00Z",
       "simulation_id": "SIM-001",
       "snapshot": {
         "assignments": [
@@ -3717,8 +3877,10 @@
         "events": [
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-1",
+            "event_id": "v0-worker-1",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -3737,6 +3899,7 @@
               "work_status": "idle",
               "worker_id": "W-07"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -3761,8 +3924,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-2",
+            "event_id": "v0-worker-2",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -3781,6 +3946,7 @@
               "work_status": "working",
               "worker_id": "W-07"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -3805,8 +3971,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-3",
+            "event_id": "v0-worker-3",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -3825,6 +3993,7 @@
               "work_status": "idle",
               "worker_id": "W-01"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -3849,8 +4018,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-4",
+            "event_id": "v0-worker-4",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -3869,6 +4040,7 @@
               "work_status": "working",
               "worker_id": "W-01"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -3893,8 +4065,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-5",
+            "event_id": "v0-worker-5",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -3912,6 +4086,7 @@
               "work_status": "idle",
               "worker_id": "W-03"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -3935,8 +4110,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-6",
+            "event_id": "v0-worker-6",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -3954,6 +4131,7 @@
               "work_status": "working",
               "worker_id": "W-03"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -3977,8 +4155,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-7",
+            "event_id": "v0-worker-7",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -3996,6 +4176,7 @@
               "work_status": "idle",
               "worker_id": "W-09"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -4019,8 +4200,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-8",
+            "event_id": "v0-worker-8",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -4038,6 +4221,7 @@
               "work_status": "working",
               "worker_id": "W-09"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -4061,8 +4245,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-9",
+            "event_id": "v0-worker-9",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -4080,6 +4266,7 @@
               "work_status": "idle",
               "worker_id": "W-02"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -4103,8 +4290,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-10",
+            "event_id": "v0-worker-10",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -4122,6 +4311,7 @@
               "work_status": "working",
               "worker_id": "W-02"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -4145,8 +4335,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-11",
+            "event_id": "v0-worker-11",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -4164,6 +4356,7 @@
               "work_status": "idle",
               "worker_id": "W-05"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -4187,8 +4380,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-12",
+            "event_id": "v0-worker-12",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -4206,6 +4401,7 @@
               "work_status": "working",
               "worker_id": "W-05"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -4229,9 +4425,12 @@
           },
           {
             "action": "tick",
+            "after_state_version": 1,
+            "before_state_version": 0,
             "elapsed_seconds": 10,
             "event_id": "api-1",
             "new_worker": null,
+            "occurred_at": "2026-01-01T00:00:10Z",
             "old_worker": null,
             "reason": "explicit HTTP request",
             "source": "api_command",
@@ -4239,9 +4438,12 @@
           },
           {
             "action": "pause",
+            "after_state_version": 2,
+            "before_state_version": 1,
             "elapsed_seconds": 10,
             "event_id": "api-2",
             "new_worker": null,
+            "occurred_at": "2026-01-01T00:00:10Z",
             "old_worker": null,
             "reason": "explicit HTTP request",
             "source": "api_command",
@@ -4269,6 +4471,8 @@
         },
         "scenario_phase": "active",
         "schema_version": "1.0",
+        "simulated_at": "2026-01-01T00:00:10Z",
+        "simulation_epoch": "2026-01-01T00:00:00Z",
         "simulation_id": "SIM-001",
         "source": "synthetic_simulator",
         "state_version": 2,
@@ -4367,6 +4571,7 @@
           }
         ],
         "tick_seconds": 10,
+        "time_basis": "simulation_epoch",
         "time_unit": "s",
         "valid": true,
         "workers": [
@@ -4577,6 +4782,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.2Tg+0.1Ta",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -4632,6 +4838,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.3Tg",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -4687,6 +4894,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.2Tg+0.1Ta",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -4742,6 +4950,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.3Tg",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -4771,6 +4980,7 @@
       "source": "synthetic_simulator",
       "state_version": 2,
       "status": "applied",
+      "time_basis": "simulation_epoch",
       "time_unit": "s"
     },
     "status": 200
@@ -4789,6 +4999,8 @@
       "simulation_id": "SIM-001"
     },
     "response": {
+      "after_state_version": 3,
+      "before_state_version": 2,
       "elapsed_seconds": 10,
       "event_ids": [
         "api-3"
@@ -4796,6 +5008,8 @@
       "idempotency_key": "example-2",
       "instance_id": "example-instance",
       "schema_version": "1.0",
+      "simulated_at": "2026-01-01T00:00:10Z",
+      "simulation_epoch": "2026-01-01T00:00:00Z",
       "simulation_id": "SIM-001",
       "snapshot": {
         "assignments": [
@@ -4840,8 +5054,10 @@
         "events": [
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-1",
+            "event_id": "v0-worker-1",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -4860,6 +5076,7 @@
               "work_status": "idle",
               "worker_id": "W-07"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -4884,8 +5101,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-2",
+            "event_id": "v0-worker-2",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -4904,6 +5123,7 @@
               "work_status": "working",
               "worker_id": "W-07"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -4928,8 +5148,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-3",
+            "event_id": "v0-worker-3",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -4948,6 +5170,7 @@
               "work_status": "idle",
               "worker_id": "W-01"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -4972,8 +5195,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-4",
+            "event_id": "v0-worker-4",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -4992,6 +5217,7 @@
               "work_status": "working",
               "worker_id": "W-01"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -5016,8 +5242,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-5",
+            "event_id": "v0-worker-5",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -5035,6 +5263,7 @@
               "work_status": "idle",
               "worker_id": "W-03"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -5058,8 +5287,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-6",
+            "event_id": "v0-worker-6",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -5077,6 +5308,7 @@
               "work_status": "working",
               "worker_id": "W-03"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -5100,8 +5332,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-7",
+            "event_id": "v0-worker-7",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -5119,6 +5353,7 @@
               "work_status": "idle",
               "worker_id": "W-09"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -5142,8 +5377,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-8",
+            "event_id": "v0-worker-8",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -5161,6 +5398,7 @@
               "work_status": "working",
               "worker_id": "W-09"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -5184,8 +5422,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-9",
+            "event_id": "v0-worker-9",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -5203,6 +5443,7 @@
               "work_status": "idle",
               "worker_id": "W-02"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -5226,8 +5467,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-10",
+            "event_id": "v0-worker-10",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -5245,6 +5488,7 @@
               "work_status": "working",
               "worker_id": "W-02"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -5268,8 +5512,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-11",
+            "event_id": "v0-worker-11",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -5287,6 +5533,7 @@
               "work_status": "idle",
               "worker_id": "W-05"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -5310,8 +5557,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-12",
+            "event_id": "v0-worker-12",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -5329,6 +5578,7 @@
               "work_status": "working",
               "worker_id": "W-05"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -5352,9 +5602,12 @@
           },
           {
             "action": "tick",
+            "after_state_version": 1,
+            "before_state_version": 0,
             "elapsed_seconds": 10,
             "event_id": "api-1",
             "new_worker": null,
+            "occurred_at": "2026-01-01T00:00:10Z",
             "old_worker": null,
             "reason": "explicit HTTP request",
             "source": "api_command",
@@ -5362,9 +5615,12 @@
           },
           {
             "action": "pause",
+            "after_state_version": 2,
+            "before_state_version": 1,
             "elapsed_seconds": 10,
             "event_id": "api-2",
             "new_worker": null,
+            "occurred_at": "2026-01-01T00:00:10Z",
             "old_worker": null,
             "reason": "explicit HTTP request",
             "source": "api_command",
@@ -5372,9 +5628,12 @@
           },
           {
             "action": "resume",
+            "after_state_version": 3,
+            "before_state_version": 2,
             "elapsed_seconds": 10,
             "event_id": "api-3",
             "new_worker": null,
+            "occurred_at": "2026-01-01T00:00:10Z",
             "old_worker": null,
             "reason": "explicit HTTP request",
             "source": "api_command",
@@ -5402,6 +5661,8 @@
         },
         "scenario_phase": "active",
         "schema_version": "1.0",
+        "simulated_at": "2026-01-01T00:00:10Z",
+        "simulation_epoch": "2026-01-01T00:00:00Z",
         "simulation_id": "SIM-001",
         "source": "synthetic_simulator",
         "state_version": 3,
@@ -5500,6 +5761,7 @@
           }
         ],
         "tick_seconds": 10,
+        "time_basis": "simulation_epoch",
         "time_unit": "s",
         "valid": true,
         "workers": [
@@ -5710,6 +5972,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.2Tg+0.1Ta",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -5765,6 +6028,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.3Tg",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -5820,6 +6084,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.2Tg+0.1Ta",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -5875,6 +6140,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.3Tg",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -5904,6 +6170,7 @@
       "source": "synthetic_simulator",
       "state_version": 3,
       "status": "applied",
+      "time_basis": "simulation_epoch",
       "time_unit": "s"
     },
     "status": 200
@@ -5923,6 +6190,8 @@
       "simulation_id": "SIM-001"
     },
     "response": {
+      "after_state_version": 4,
+      "before_state_version": 3,
       "elapsed_seconds": 10,
       "event_ids": [
         "api-4"
@@ -5930,6 +6199,8 @@
       "idempotency_key": "example-3",
       "instance_id": "example-instance",
       "schema_version": "1.0",
+      "simulated_at": "2026-01-01T00:00:10Z",
+      "simulation_epoch": "2026-01-01T00:00:00Z",
       "simulation_id": "SIM-001",
       "snapshot": {
         "assignments": [
@@ -5974,8 +6245,10 @@
         "events": [
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-1",
+            "event_id": "v0-worker-1",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -5994,6 +6267,7 @@
               "work_status": "idle",
               "worker_id": "W-07"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -6018,8 +6292,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-2",
+            "event_id": "v0-worker-2",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -6038,6 +6314,7 @@
               "work_status": "working",
               "worker_id": "W-07"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -6062,8 +6339,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-3",
+            "event_id": "v0-worker-3",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -6082,6 +6361,7 @@
               "work_status": "idle",
               "worker_id": "W-01"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -6106,8 +6386,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-4",
+            "event_id": "v0-worker-4",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -6126,6 +6408,7 @@
               "work_status": "working",
               "worker_id": "W-01"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -6150,8 +6433,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-5",
+            "event_id": "v0-worker-5",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -6169,6 +6454,7 @@
               "work_status": "idle",
               "worker_id": "W-03"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -6192,8 +6478,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-6",
+            "event_id": "v0-worker-6",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -6211,6 +6499,7 @@
               "work_status": "working",
               "worker_id": "W-03"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -6234,8 +6523,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-7",
+            "event_id": "v0-worker-7",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -6253,6 +6544,7 @@
               "work_status": "idle",
               "worker_id": "W-09"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -6276,8 +6568,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-8",
+            "event_id": "v0-worker-8",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -6295,6 +6589,7 @@
               "work_status": "working",
               "worker_id": "W-09"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -6318,8 +6613,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-9",
+            "event_id": "v0-worker-9",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -6337,6 +6634,7 @@
               "work_status": "idle",
               "worker_id": "W-02"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -6360,8 +6658,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-10",
+            "event_id": "v0-worker-10",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -6379,6 +6679,7 @@
               "work_status": "working",
               "worker_id": "W-02"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -6402,8 +6703,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-11",
+            "event_id": "v0-worker-11",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -6421,6 +6724,7 @@
               "work_status": "idle",
               "worker_id": "W-05"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -6444,8 +6748,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-12",
+            "event_id": "v0-worker-12",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -6463,6 +6769,7 @@
               "work_status": "working",
               "worker_id": "W-05"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -6486,9 +6793,12 @@
           },
           {
             "action": "tick",
+            "after_state_version": 1,
+            "before_state_version": 0,
             "elapsed_seconds": 10,
             "event_id": "api-1",
             "new_worker": null,
+            "occurred_at": "2026-01-01T00:00:10Z",
             "old_worker": null,
             "reason": "explicit HTTP request",
             "source": "api_command",
@@ -6496,9 +6806,12 @@
           },
           {
             "action": "pause",
+            "after_state_version": 2,
+            "before_state_version": 1,
             "elapsed_seconds": 10,
             "event_id": "api-2",
             "new_worker": null,
+            "occurred_at": "2026-01-01T00:00:10Z",
             "old_worker": null,
             "reason": "explicit HTTP request",
             "source": "api_command",
@@ -6506,9 +6819,12 @@
           },
           {
             "action": "resume",
+            "after_state_version": 3,
+            "before_state_version": 2,
             "elapsed_seconds": 10,
             "event_id": "api-3",
             "new_worker": null,
+            "occurred_at": "2026-01-01T00:00:10Z",
             "old_worker": null,
             "reason": "explicit HTTP request",
             "source": "api_command",
@@ -6516,9 +6832,12 @@
           },
           {
             "action": "activate",
+            "after_state_version": 4,
+            "before_state_version": 3,
             "elapsed_seconds": 10,
             "event_id": "api-4",
             "new_worker": null,
+            "occurred_at": "2026-01-01T00:00:10Z",
             "old_worker": null,
             "reason": "explicit HTTP request",
             "source": "api_command",
@@ -6552,6 +6871,8 @@
         },
         "scenario_phase": "active",
         "schema_version": "1.0",
+        "simulated_at": "2026-01-01T00:00:10Z",
+        "simulation_epoch": "2026-01-01T00:00:00Z",
         "simulation_id": "SIM-001",
         "source": "synthetic_simulator",
         "state_version": 4,
@@ -6650,6 +6971,7 @@
           }
         ],
         "tick_seconds": 10,
+        "time_basis": "simulation_epoch",
         "time_unit": "s",
         "valid": true,
         "workers": [
@@ -6860,6 +7182,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.2Tg+0.1Ta",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -6915,6 +7238,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.3Tg",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -6970,6 +7294,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.2Tg+0.1Ta",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -7025,6 +7350,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.3Tg",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -7054,6 +7380,7 @@
       "source": "synthetic_simulator",
       "state_version": 4,
       "status": "applied",
+      "time_basis": "simulation_epoch",
       "time_unit": "s"
     },
     "status": 200
@@ -7080,14 +7407,18 @@
       "simulation_id": "SIM-001"
     },
     "response": {
+      "after_state_version": 5,
+      "before_state_version": 4,
       "elapsed_seconds": 10,
       "event_ids": [
-        "initial-worker-13",
+        "v5-worker-13",
         "api-5"
       ],
       "idempotency_key": "example-4",
       "instance_id": "example-instance",
       "schema_version": "1.0",
+      "simulated_at": "2026-01-01T00:00:10Z",
+      "simulation_epoch": "2026-01-01T00:00:00Z",
       "simulation_id": "SIM-001",
       "snapshot": {
         "assignments": [
@@ -7126,8 +7457,10 @@
         "events": [
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-1",
+            "event_id": "v0-worker-1",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -7146,6 +7479,7 @@
               "work_status": "idle",
               "worker_id": "W-07"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -7170,8 +7504,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-2",
+            "event_id": "v0-worker-2",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -7190,6 +7526,7 @@
               "work_status": "working",
               "worker_id": "W-07"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -7214,8 +7551,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-3",
+            "event_id": "v0-worker-3",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -7234,6 +7573,7 @@
               "work_status": "idle",
               "worker_id": "W-01"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -7258,8 +7598,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-4",
+            "event_id": "v0-worker-4",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -7278,6 +7620,7 @@
               "work_status": "working",
               "worker_id": "W-01"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -7302,8 +7645,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-5",
+            "event_id": "v0-worker-5",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -7321,6 +7666,7 @@
               "work_status": "idle",
               "worker_id": "W-03"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -7344,8 +7690,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-6",
+            "event_id": "v0-worker-6",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -7363,6 +7711,7 @@
               "work_status": "working",
               "worker_id": "W-03"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -7386,8 +7735,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-7",
+            "event_id": "v0-worker-7",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -7405,6 +7756,7 @@
               "work_status": "idle",
               "worker_id": "W-09"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -7428,8 +7780,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-8",
+            "event_id": "v0-worker-8",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -7447,6 +7801,7 @@
               "work_status": "working",
               "worker_id": "W-09"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -7470,8 +7825,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-9",
+            "event_id": "v0-worker-9",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -7489,6 +7846,7 @@
               "work_status": "idle",
               "worker_id": "W-02"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -7512,8 +7870,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-10",
+            "event_id": "v0-worker-10",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -7531,6 +7891,7 @@
               "work_status": "working",
               "worker_id": "W-02"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -7554,8 +7915,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-11",
+            "event_id": "v0-worker-11",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -7573,6 +7936,7 @@
               "work_status": "idle",
               "worker_id": "W-05"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -7596,8 +7960,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 0,
+            "before_state_version": 0,
             "elapsed_seconds": 0,
-            "event_id": "initial-worker-12",
+            "event_id": "v0-worker-12",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -7615,6 +7981,7 @@
               "work_status": "working",
               "worker_id": "W-05"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -7635,11 +8002,65 @@
             "reason": "explicit engine work start",
             "source": "simulated",
             "worker_id": "W-05"
+          },
+          {
+            "action": "tick",
+            "after_state_version": 1,
+            "before_state_version": 0,
+            "elapsed_seconds": 10,
+            "event_id": "api-1",
+            "new_worker": null,
+            "occurred_at": "2026-01-01T00:00:10Z",
+            "old_worker": null,
+            "reason": "explicit HTTP request",
+            "source": "api_command",
+            "worker_id": null
+          },
+          {
+            "action": "pause",
+            "after_state_version": 2,
+            "before_state_version": 1,
+            "elapsed_seconds": 10,
+            "event_id": "api-2",
+            "new_worker": null,
+            "occurred_at": "2026-01-01T00:00:10Z",
+            "old_worker": null,
+            "reason": "explicit HTTP request",
+            "source": "api_command",
+            "worker_id": null
+          },
+          {
+            "action": "resume",
+            "after_state_version": 3,
+            "before_state_version": 2,
+            "elapsed_seconds": 10,
+            "event_id": "api-3",
+            "new_worker": null,
+            "occurred_at": "2026-01-01T00:00:10Z",
+            "old_worker": null,
+            "reason": "explicit HTTP request",
+            "source": "api_command",
+            "worker_id": null
+          },
+          {
+            "action": "activate",
+            "after_state_version": 4,
+            "before_state_version": 3,
+            "elapsed_seconds": 10,
+            "event_id": "api-4",
+            "new_worker": null,
+            "occurred_at": "2026-01-01T00:00:10Z",
+            "old_worker": null,
+            "reason": "explicit HTTP request",
+            "source": "api_command",
+            "worker_id": null
           },
           {
             "action": "start_rest",
+            "after_state_version": 5,
+            "before_state_version": 4,
             "elapsed_seconds": 10,
-            "event_id": "initial-worker-13",
+            "event_id": "v5-worker-13",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "unavailable",
@@ -7657,6 +8078,7 @@
               "work_status": "resting",
               "worker_id": "W-03"
             },
+            "occurred_at": "2026-01-01T00:00:10Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -7679,50 +8101,13 @@
             "worker_id": "W-03"
           },
           {
-            "action": "tick",
-            "elapsed_seconds": 10,
-            "event_id": "api-1",
-            "new_worker": null,
-            "old_worker": null,
-            "reason": "explicit HTTP request",
-            "source": "api_command",
-            "worker_id": null
-          },
-          {
-            "action": "pause",
-            "elapsed_seconds": 10,
-            "event_id": "api-2",
-            "new_worker": null,
-            "old_worker": null,
-            "reason": "explicit HTTP request",
-            "source": "api_command",
-            "worker_id": null
-          },
-          {
-            "action": "resume",
-            "elapsed_seconds": 10,
-            "event_id": "api-3",
-            "new_worker": null,
-            "old_worker": null,
-            "reason": "explicit HTTP request",
-            "source": "api_command",
-            "worker_id": null
-          },
-          {
-            "action": "activate",
-            "elapsed_seconds": 10,
-            "event_id": "api-4",
-            "new_worker": null,
-            "old_worker": null,
-            "reason": "explicit HTTP request",
-            "source": "api_command",
-            "worker_id": null
-          },
-          {
             "action": "commands",
+            "after_state_version": 5,
+            "before_state_version": 4,
             "elapsed_seconds": 10,
             "event_id": "api-5",
             "new_worker": null,
+            "occurred_at": "2026-01-01T00:00:10Z",
             "old_worker": null,
             "reason": "explicit HTTP request",
             "source": "api_command",
@@ -7756,6 +8141,8 @@
         },
         "scenario_phase": "active",
         "schema_version": "1.0",
+        "simulated_at": "2026-01-01T00:00:10Z",
+        "simulation_epoch": "2026-01-01T00:00:00Z",
         "simulation_id": "SIM-001",
         "source": "synthetic_simulator",
         "state_version": 5,
@@ -7854,6 +8241,7 @@
           }
         ],
         "tick_seconds": 10,
+        "time_basis": "simulation_epoch",
         "time_unit": "s",
         "valid": true,
         "workers": [
@@ -8064,6 +8452,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.2Tg+0.1Ta",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -8119,6 +8508,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.3Tg",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -8174,6 +8564,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.2Tg+0.1Ta",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -8229,6 +8620,7 @@
               ],
               "elapsed_seconds": 10,
               "method": "ISO7243_0.7Tnw+0.3Tg",
+              "observed_at": "2026-01-01T00:00:10Z",
               "observed_at_seconds": 10,
               "quality": "good",
               "source": "simulated",
@@ -8258,6 +8650,7 @@
       "source": "synthetic_simulator",
       "state_version": 5,
       "status": "applied",
+      "time_basis": "simulation_epoch",
       "time_unit": "s"
     },
     "status": 200
@@ -8276,25 +8669,29 @@
       "simulation_id": "SIM-001"
     },
     "response": {
+      "after_state_version": 6,
+      "before_state_version": 5,
       "elapsed_seconds": 0,
       "event_ids": [
-        "api-6-worker-1",
-        "api-6-worker-2",
-        "api-6-worker-3",
-        "api-6-worker-4",
-        "api-6-worker-5",
-        "api-6-worker-6",
-        "api-6-worker-7",
-        "api-6-worker-8",
-        "api-6-worker-9",
-        "api-6-worker-10",
-        "api-6-worker-11",
-        "api-6-worker-12",
+        "v6-worker-1",
+        "v6-worker-2",
+        "v6-worker-3",
+        "v6-worker-4",
+        "v6-worker-5",
+        "v6-worker-6",
+        "v6-worker-7",
+        "v6-worker-8",
+        "v6-worker-9",
+        "v6-worker-10",
+        "v6-worker-11",
+        "v6-worker-12",
         "api-6"
       ],
       "idempotency_key": "example-5",
       "instance_id": "example-instance",
       "schema_version": "1.0",
+      "simulated_at": "2026-01-01T00:00:00Z",
+      "simulation_epoch": "2026-01-01T00:00:00Z",
       "simulation_id": "SIM-001",
       "snapshot": {
         "assignments": [
@@ -8339,8 +8736,10 @@
         "events": [
           {
             "action": "assign_task",
+            "after_state_version": 6,
+            "before_state_version": 5,
             "elapsed_seconds": 0,
-            "event_id": "api-6-worker-1",
+            "event_id": "v6-worker-1",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -8359,6 +8758,7 @@
               "work_status": "idle",
               "worker_id": "W-07"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -8383,8 +8783,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 6,
+            "before_state_version": 5,
             "elapsed_seconds": 0,
-            "event_id": "api-6-worker-2",
+            "event_id": "v6-worker-2",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -8403,6 +8805,7 @@
               "work_status": "working",
               "worker_id": "W-07"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -8427,8 +8830,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 6,
+            "before_state_version": 5,
             "elapsed_seconds": 0,
-            "event_id": "api-6-worker-3",
+            "event_id": "v6-worker-3",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -8447,6 +8852,7 @@
               "work_status": "idle",
               "worker_id": "W-01"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -8471,8 +8877,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 6,
+            "before_state_version": 5,
             "elapsed_seconds": 0,
-            "event_id": "api-6-worker-4",
+            "event_id": "v6-worker-4",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -8491,6 +8899,7 @@
               "work_status": "working",
               "worker_id": "W-01"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -8515,8 +8924,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 6,
+            "before_state_version": 5,
             "elapsed_seconds": 0,
-            "event_id": "api-6-worker-5",
+            "event_id": "v6-worker-5",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -8534,6 +8945,7 @@
               "work_status": "idle",
               "worker_id": "W-03"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -8557,8 +8969,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 6,
+            "before_state_version": 5,
             "elapsed_seconds": 0,
-            "event_id": "api-6-worker-6",
+            "event_id": "v6-worker-6",
             "new_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -8576,6 +8990,7 @@
               "work_status": "working",
               "worker_id": "W-03"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "acclimatized",
               "availability_status": "available",
@@ -8599,8 +9014,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 6,
+            "before_state_version": 5,
             "elapsed_seconds": 0,
-            "event_id": "api-6-worker-7",
+            "event_id": "v6-worker-7",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -8618,6 +9035,7 @@
               "work_status": "idle",
               "worker_id": "W-09"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -8641,8 +9059,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 6,
+            "before_state_version": 5,
             "elapsed_seconds": 0,
-            "event_id": "api-6-worker-8",
+            "event_id": "v6-worker-8",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -8660,6 +9080,7 @@
               "work_status": "working",
               "worker_id": "W-09"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -8683,8 +9104,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 6,
+            "before_state_version": 5,
             "elapsed_seconds": 0,
-            "event_id": "api-6-worker-9",
+            "event_id": "v6-worker-9",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -8702,6 +9125,7 @@
               "work_status": "idle",
               "worker_id": "W-02"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -8725,8 +9149,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 6,
+            "before_state_version": 5,
             "elapsed_seconds": 0,
-            "event_id": "api-6-worker-10",
+            "event_id": "v6-worker-10",
             "new_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -8744,6 +9170,7 @@
               "work_status": "working",
               "worker_id": "W-02"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "not_acclimatized",
               "availability_status": "available",
@@ -8767,8 +9194,10 @@
           },
           {
             "action": "assign_task",
+            "after_state_version": 6,
+            "before_state_version": 5,
             "elapsed_seconds": 0,
-            "event_id": "api-6-worker-11",
+            "event_id": "v6-worker-11",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -8786,6 +9215,7 @@
               "work_status": "idle",
               "worker_id": "W-05"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -8809,8 +9239,10 @@
           },
           {
             "action": "start_work",
+            "after_state_version": 6,
+            "before_state_version": 5,
             "elapsed_seconds": 0,
-            "event_id": "api-6-worker-12",
+            "event_id": "v6-worker-12",
             "new_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -8828,6 +9260,7 @@
               "work_status": "working",
               "worker_id": "W-05"
             },
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": {
               "acclimatization_status": "unknown",
               "availability_status": "available",
@@ -8851,9 +9284,12 @@
           },
           {
             "action": "reset",
+            "after_state_version": 6,
+            "before_state_version": 5,
             "elapsed_seconds": 0,
             "event_id": "api-6",
             "new_worker": null,
+            "occurred_at": "2026-01-01T00:00:00Z",
             "old_worker": null,
             "reason": "explicit HTTP request",
             "source": "api_command",
@@ -8887,6 +9323,8 @@
         },
         "scenario_phase": "active",
         "schema_version": "1.0",
+        "simulated_at": "2026-01-01T00:00:00Z",
+        "simulation_epoch": "2026-01-01T00:00:00Z",
         "simulation_id": "SIM-001",
         "source": "synthetic_simulator",
         "state_version": 6,
@@ -8985,6 +9423,7 @@
           }
         ],
         "tick_seconds": 10,
+        "time_basis": "simulation_epoch",
         "time_unit": "s",
         "valid": true,
         "workers": [
@@ -9195,6 +9634,7 @@
               ],
               "elapsed_seconds": 0,
               "method": "ISO7243_0.7Tnw+0.2Tg+0.1Ta",
+              "observed_at": "2026-01-01T00:00:00Z",
               "observed_at_seconds": 0,
               "quality": "good",
               "source": "simulated",
@@ -9250,6 +9690,7 @@
               ],
               "elapsed_seconds": 0,
               "method": "ISO7243_0.7Tnw+0.3Tg",
+              "observed_at": "2026-01-01T00:00:00Z",
               "observed_at_seconds": 0,
               "quality": "good",
               "source": "simulated",
@@ -9305,6 +9746,7 @@
               ],
               "elapsed_seconds": 0,
               "method": "ISO7243_0.7Tnw+0.2Tg+0.1Ta",
+              "observed_at": "2026-01-01T00:00:00Z",
               "observed_at_seconds": 0,
               "quality": "good",
               "source": "simulated",
@@ -9360,6 +9802,7 @@
               ],
               "elapsed_seconds": 0,
               "method": "ISO7243_0.7Tnw+0.3Tg",
+              "observed_at": "2026-01-01T00:00:00Z",
               "observed_at_seconds": 0,
               "quality": "good",
               "source": "simulated",
@@ -9389,6 +9832,7 @@
       "source": "synthetic_simulator",
       "state_version": 6,
       "status": "applied",
+      "time_basis": "simulation_epoch",
       "time_unit": "s"
     },
     "status": 200
