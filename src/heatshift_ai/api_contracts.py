@@ -1,11 +1,19 @@
 """Version 1 HTTP projections. Domain dataclasses remain the authoritative state."""
 from typing import Annotated, Generic, Literal, TypeVar
-from pydantic import BaseModel, ConfigDict, Field, model_validator
+from pydantic import BaseModel, ConfigDict, Field, model_validator, AwareDatetime
+from datetime import datetime, timedelta, timezone
+
+SIMULATION_EPOCH = datetime(2026, 1, 1, tzinfo=timezone.utc)
+
+def simulation_timestamp(elapsed_seconds):
+    """Calendar projection only; elapsed seconds remain the sole simulation clock."""
+    return SIMULATION_EPOCH + timedelta(seconds=elapsed_seconds)
+
 from .enums import (AcclimatizationStatus, AvailabilityStatus, WorkStatus,
                     TaskStatus, WorkloadCategory, ZoneKind, MeasurementSource)
 from .engineering_scenarios import EngineeringScenarioName
 
-ID = Annotated[str, Field(min_length=1, max_length=100, pattern=r'^[A-Za-z0-9][A-Za-z0-9_-]*$')]
+ID = Annotated[str, Field(min_length=1, max_length=100, pattern=r'^[A-Za-z][A-Za-z0-9_-]*$')]
 Seconds = Annotated[int, Field(strict=True, ge=0)]
 
 class Contract(BaseModel):
@@ -14,9 +22,12 @@ class Contract(BaseModel):
 class Context(Contract):
     schema_version: Literal['1.0'] = '1.0'
     simulation_id: ID
-    instance_id: str
+    instance_id: Annotated[str, Field(min_length=1, max_length=100)]
     state_version: Seconds
     elapsed_seconds: Seconds
+    simulated_at: AwareDatetime
+    simulation_epoch: AwareDatetime = SIMULATION_EPOCH
+    time_basis: Literal['simulation_epoch'] = 'simulation_epoch'
     source: Literal['synthetic_simulator'] = 'synthetic_simulator'
     time_unit: Literal['s'] = 's'
 
@@ -54,6 +65,7 @@ class EnvironmentalObservation(Contract):
     zone_id: ID
     elapsed_seconds: Seconds
     observed_at_seconds: Seconds
+    observed_at: AwareDatetime
     source: MeasurementSource
     quality: Literal['good', 'missing', 'stale', 'invalid']
     wbgt_celsius: float | None
@@ -69,6 +81,9 @@ class ZoneSnapshot(Contract):
     environment: EnvironmentalObservation
 
 class SimulationEvent(Contract):
+    occurred_at: AwareDatetime
+    before_state_version: Seconds
+    after_state_version: Seconds
     event_id: str
     elapsed_seconds: Seconds
     action: str
@@ -110,7 +125,7 @@ class ScenarioInfo(Contract):
 class MutationRequest(Contract):
     schema_version: Literal['1.0']
     simulation_id: ID
-    instance_id: str
+    instance_id: Annotated[str, Field(min_length=1, max_length=100)]
     expected_state_version: Seconds
 
 class TickRequest(MutationRequest):
@@ -144,6 +159,8 @@ class CommandRequest(MutationRequest):
     commands: Annotated[list[SimulationCommand], Field(min_length=1, max_length=32)]
 
 class SimulationCommandResult(Context):
+    before_state_version: Seconds
+    after_state_version: Seconds
     status: Literal['applied'] = 'applied'
     idempotency_key: str
     event_ids: list[str]

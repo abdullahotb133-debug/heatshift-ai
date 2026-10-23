@@ -13,6 +13,7 @@ from .api_contracts import (Health, SimulationSnapshot, SimulationCommandResult,
     TickRequest, ActivateRequest, CommandRequest, Collection, WorkerSnapshot, TaskSnapshot,
     ZoneSnapshot, EnvironmentalObservation, SimulationEvent, ScenarioInfo, ErrorResponse)
 from .api_service import SimulationService, ServiceError
+from .http_limits import BodyLimitMiddleware
 from .engineering_scenarios import EngineeringScenarioName, load_scenario
 from .serialization import to_json_value
 
@@ -23,8 +24,11 @@ class APISettings:
     cors_origins: tuple[str,...] = ()
     seed: int = 42
     max_operations: int = 10000
+    max_body_bytes: int = 65536
 
     def __post_init__(self):
+        if type(self.max_body_bytes) is not int or not 1024 <= self.max_body_bytes <= 1048576:
+            raise ValueError('max_body_bytes must be integer 1024..1048576')
         if self.mode not in ('development','deployment'): raise ValueError('invalid HEATSHIFT_MODE')
         if self.mode=='deployment' and (not self.token or len(self.token)<32):
             raise ValueError('deployment requires HEATSHIFT_API_TOKEN of at least 32 characters')
@@ -38,15 +42,17 @@ class APISettings:
     def from_env(cls):
         return cls(mode=os.getenv('HEATSHIFT_MODE','development'),token=os.getenv('HEATSHIFT_API_TOKEN') or None,
             cors_origins=tuple(o.strip() for o in os.getenv('HEATSHIFT_CORS_ORIGINS','').split(',') if o.strip()),
-            seed=int(os.getenv('HEATSHIFT_SEED','42')),max_operations=int(os.getenv('HEATSHIFT_MAX_OPERATIONS','10000')))
+            seed=int(os.getenv('HEATSHIFT_SEED','42')),max_operations=int(os.getenv('HEATSHIFT_MAX_OPERATIONS','10000')),
+            max_body_bytes=int(os.getenv('HEATSHIFT_MAX_BODY_BYTES','65536')))
 
 
 def create_app(settings: APISettings | None = None, *, service: SimulationService | None = None):
     settings=settings or APISettings.from_env()
     service=service or SimulationService(settings.seed,max_operations=settings.max_operations)
-    errors={status:{'model':ErrorResponse} for status in (401,403,409,422,503,500)}
+    errors={status:{'model':ErrorResponse} for status in (401,403,409,413,422,503,500)}
     app=FastAPI(title='HeatShift Component A',version='1.0',responses=errors,
         description='Synthetic simulator only. One process / one worker. No risk evaluation.')
+    app.add_middleware(BodyLimitMiddleware,max_bytes=settings.max_body_bytes)
     app.add_middleware(CORSMiddleware,allow_origins=list(settings.cors_origins),
         allow_credentials=False,allow_methods=['GET','POST'],
         allow_headers=['Authorization','Content-Type','Idempotency-Key'])
@@ -93,7 +99,7 @@ def create_app(settings: APISettings | None = None, *, service: SimulationServic
     def collection(name, model):
         snapshot=service.snapshot()
         items=[z.environment for z in snapshot.zones] if name=='observations' else getattr(snapshot,name)
-        return Collection[model](**{k:getattr(snapshot,k) for k in ('simulation_id','instance_id','state_version','elapsed_seconds')},items=items)
+        return Collection[model](**{k:getattr(snapshot,k) for k in ('simulation_id','instance_id','state_version','elapsed_seconds','simulated_at')},items=items)
 
     @app.get('/api/v1/zones',response_model=Collection[ZoneSnapshot],dependencies=reads)
     def zones(): return collection('zones',ZoneSnapshot)
@@ -108,7 +114,7 @@ def create_app(settings: APISettings | None = None, *, service: SimulationServic
     @app.get('/api/v1/scenarios',response_model=Collection[ScenarioInfo],dependencies=reads)
     def scenarios():
         s=service.snapshot()
-        return Collection[ScenarioInfo](**{k:getattr(s,k) for k in ('simulation_id','instance_id','state_version','elapsed_seconds')},
+        return Collection[ScenarioInfo](**{k:getattr(s,k) for k in ('simulation_id','instance_id','state_version','elapsed_seconds','simulated_at')},
             items=[ScenarioInfo(scenario_id=n,version=1,parameters=to_json_value(load_scenario(n,seed=settings.seed))) for n in EngineeringScenarioName])
 
     Key=Annotated[str,Header(alias='Idempotency-Key',min_length=1,max_length=128,pattern=r'^[A-Za-z0-9_.:-]+$')]

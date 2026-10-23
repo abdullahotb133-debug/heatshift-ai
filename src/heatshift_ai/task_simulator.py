@@ -73,6 +73,7 @@ def _default_zones() -> tuple[Zone, ...]:
 
 @dataclass(frozen=True, kw_only=True)
 class TaskConfig:
+    count: int = 6
     definitions: tuple[TaskDefinition, ...] = field(default_factory=default_task_definitions)
     zones: tuple[Zone, ...] = field(default_factory=_default_zones)
     known_qualifications: frozenset[str] = frozenset({
@@ -81,8 +82,10 @@ class TaskConfig:
     })
 
     def __post_init__(self) -> None:
-        if not isinstance(self.definitions, tuple) or len(self.definitions) != 6:
-            raise ValueError('definitions must be a tuple of exactly six TaskDefinition models')
+        if type(self.count) is not int or self.count < 1:
+            raise ValueError('count must be a positive integer')
+        if not isinstance(self.definitions, tuple) or len(self.definitions) != self.count:
+            raise ValueError('definitions must be a tuple matching configured task count')
         if any(not isinstance(d, TaskDefinition) for d in self.definitions):
             raise ValueError('definitions must contain TaskDefinition models')
         if len({d.task_id for d in self.definitions}) != len(self.definitions):

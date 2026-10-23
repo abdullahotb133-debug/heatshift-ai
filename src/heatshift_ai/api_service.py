@@ -4,7 +4,8 @@ from threading import RLock
 from uuid import uuid4
 from .engineering_scenarios import EngineeringScenarioRunner, load_scenario
 from .integrated_engine import EngineCommand
-from .api_contracts import SimulationSnapshot, SimulationCommandResult
+from .api_contracts import SimulationSnapshot, SimulationCommandResult, simulation_timestamp
+from .serialization import to_json_value
 
 class ServiceError(Exception):
     def __init__(self, status, code, message):
@@ -18,28 +19,33 @@ class SimulationService:
         self._instance=instance_id or str(uuid4())
         self._version=0
         self._ledger={}
-        self._operations=()
+        self._operations=self._worker_events(self._runner.engine.get_state().events, 0)
         self._max_operations=max_operations
+
+    @staticmethod
+    def _worker_events(events, version):
+        result=[]
+        for event in events:
+            wid=event.worker_id
+            result.append(dict(event_id=f'v{version}-worker-{event.event_id}',
+                elapsed_seconds=event.elapsed_seconds,occurred_at=simulation_timestamp(event.elapsed_seconds),
+                before_state_version=max(0,version-1),after_state_version=version,
+                action=event.action,worker_id=wid,reason=event.reason,source='simulated',
+                old_worker=to_json_value(next(w for w in event.old_state.workers if w.worker_id==wid)),
+                new_worker=to_json_value(next(w for w in event.new_state.workers if w.worker_id==wid))))
+        return tuple(result)
 
     def _snapshot(self, runner, version, operations):
         raw=runner.snapshot()
-        events=[]
-        epoch=operations[0]['event_id'] if operations and operations[0]['action']=='reset' else 'initial'
-        for event in raw['events']:
-            wid=event['worker_id']
-            events.append(dict(event_id=f"{epoch}-worker-{event['event_id']}",elapsed_seconds=event['elapsed_seconds'],
-                action=event['action'],worker_id=wid,reason=event['reason'],source='simulated',
-                old_worker=next(w for w in event['old_state']['workers'] if w['worker_id']==wid),
-                new_worker=next(w for w in event['new_state']['workers'] if w['worker_id']==wid)))
-        events.extend(operations)
-        events.sort(key=lambda e:e['elapsed_seconds'])
+        events=list(operations)
         zones=raw['zones']
         for zone in zones:
             obs=zone['environment']; meta=obs['source_metadata']
             obs.update(observed_at_seconds=int(meta['observed_at_seconds']),quality=meta['quality'],
-                       wbgt_kind=meta['wbgt_kind'])
+                       wbgt_kind=meta['wbgt_kind'],observed_at=simulation_timestamp(int(meta['observed_at_seconds'])))
         return SimulationSnapshot.model_validate(dict(simulation_id=raw['simulation_id'],instance_id=self._instance,
-            state_version=version,elapsed_seconds=raw['simulated_time_seconds'],zones=zones,
+            state_version=version,elapsed_seconds=raw['simulated_time_seconds'],
+            simulated_at=simulation_timestamp(raw['simulated_time_seconds']),zones=zones,
             workers=raw['workers'],tasks=raw['tasks'],assignments=raw['assignments'],events=events,
             random_seed=raw['random_seed'],tick_seconds=raw['tick_seconds'],scenario=raw['scenario'],
             scenario_input=raw['scenario_input'],scenario_phase=raw['scenario_phase'],paused=raw['paused']))
@@ -88,11 +94,16 @@ class SimulationService:
                 raise ServiceError(422,'domain_rejection',str(exc)) from exc
             version=self._version+1
             event=dict(event_id=f'api-{version}',elapsed_seconds=candidate.engine.get_state().simulation.time.elapsed_seconds,
-                action=action,reason='explicit HTTP request',source='api_command')
-            operations=(() if action=='reset' else self._operations)+(event,)
+                action=action,reason='explicit HTTP request',source='api_command',
+                occurred_at=simulation_timestamp(candidate.engine.get_state().simulation.time.elapsed_seconds),
+                before_state_version=self._version,after_state_version=version)
+            old_count=0 if action=='reset' else len(self._runner.engine.get_state().events)
+            new_events=self._worker_events(candidate.engine.get_state().events[old_count:],version)
+            operations=(() if action=='reset' else self._operations)+new_events+(event,)
             snapshot=self._snapshot(candidate,version,operations)
             previous_ids={e.event_id for e in self.snapshot().events} if action!='reset' else set()
-            result=SimulationCommandResult(**{k:getattr(snapshot,k) for k in ('simulation_id','instance_id','state_version','elapsed_seconds')},
+            result=SimulationCommandResult(**{k:getattr(snapshot,k) for k in ('simulation_id','instance_id','state_version','elapsed_seconds','simulated_at')},
+                before_state_version=self._version,after_state_version=version,
                 idempotency_key=key,event_ids=[e.event_id for e in snapshot.events if e.event_id not in previous_ids],snapshot=snapshot)
             # Force JSON encoding before publication, including finite numeric validation.
             result.model_dump_json()
