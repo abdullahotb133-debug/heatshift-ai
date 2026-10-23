@@ -44,6 +44,15 @@ def run_demo(client, token):
     commands=[dict(action='stop_work',worker_id='W-03',reason='scripted mock B handover'),
               dict(action='assign_task',worker_id='W-06',task_id='T-01',zone_id='ZONE_A',reason='scripted mock B handover'),
               dict(action='start_work',worker_id='W-06',reason='scripted mock B work start')]
+    # Deliberately invalid mock proposal: W-04 lacks inspection qualification.
+    rejected_body=dict(schema_version='1.0',simulation_id=before['simulation_id'],instance_id=before['instance_id'],
+        expected_state_version=before['state_version'],commands=[commands[0],
+        dict(action='assign_task',worker_id='W-04',task_id='T-01',zone_id='ZONE_A',reason='deliberately invalid test proposal')])
+    rejected=client.post('/api/v1/simulation/commands',json=rejected_body,
+        headers={'Authorization':'Bearer '+token,'Idempotency-Key':'demo-rejected'})
+    assert rejected.status_code==422 and get('/api/v1/simulation/state')==before
+    trace.append(dict(method='POST',path='/api/v1/simulation/commands',idempotency_key='demo-rejected',
+        request=rejected_body,status=422,response=rejected.json()))
     after=post('/api/v1/simulation/commands','demo-reassignment',commands=commands)
     assert next(t for t in after['tasks'] if t['task_id']=='T-01')['assigned_worker_id']=='W-06'
     assert get('/api/v1/simulation/state')==after
@@ -52,7 +61,7 @@ def run_demo(client, token):
     assert next(w for w in advanced['workers'] if w['worker_id']=='W-03')['exposure_elapsed_seconds']==70
     result=dict(client='scripted mock Component B; not real Decision Engine',initial=initial,before=before,
         after=after,final=advanced,changes={'task_id':'T-01','old_worker_id':'W-03','new_worker_id':'W-06'},
-        events=after['events'],http_trace=trace)
+        events=after['events'],rejected_assignment=rejected.json(),http_trace=trace)
     # Process identity is intentionally nondeterministic and is not simulation data.
     def canonical(value):
         if isinstance(value,dict): return {k:('<service-instance>' if k=='instance_id' else canonical(v)) for k,v in value.items()}
