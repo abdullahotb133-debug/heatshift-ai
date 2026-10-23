@@ -1,0 +1,2735 @@
+{
+  "components": {
+    "schemas": {
+      "AcclimatizationStatus": {
+        "enum": [
+          "unknown",
+          "not_acclimatized",
+          "partially_acclimatized",
+          "acclimatized"
+        ],
+        "title": "AcclimatizationStatus",
+        "type": "string"
+      },
+      "ActivateRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "expected_state_version": {
+            "minimum": 0.0,
+            "title": "Expected State Version",
+            "type": "integer"
+          },
+          "failure_mode": {
+            "default": "missing",
+            "enum": [
+              "missing",
+              "stale",
+              "invalid"
+            ],
+            "title": "Failure Mode",
+            "type": "string"
+          },
+          "instance_id": {
+            "title": "Instance Id",
+            "type": "string"
+          },
+          "scenario_id": {
+            "$ref": "#/components/schemas/EngineeringScenarioName"
+          },
+          "schema_version": {
+            "const": "1.0",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "simulation_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Simulation Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "schema_version",
+          "simulation_id",
+          "instance_id",
+          "expected_state_version",
+          "scenario_id"
+        ],
+        "title": "ActivateRequest",
+        "type": "object"
+      },
+      "AssignmentSnapshot": {
+        "additionalProperties": false,
+        "properties": {
+          "started_at_elapsed_seconds": {
+            "minimum": 0.0,
+            "title": "Started At Elapsed Seconds",
+            "type": "integer"
+          },
+          "task_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Task Id",
+            "type": "string"
+          },
+          "worker_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Worker Id",
+            "type": "string"
+          },
+          "zone_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Zone Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "worker_id",
+          "task_id",
+          "zone_id",
+          "started_at_elapsed_seconds"
+        ],
+        "title": "AssignmentSnapshot",
+        "type": "object"
+      },
+      "AvailabilityStatus": {
+        "enum": [
+          "available",
+          "unavailable"
+        ],
+        "title": "AvailabilityStatus",
+        "type": "string"
+      },
+      "Collection_EnvironmentalObservation_": {
+        "additionalProperties": false,
+        "properties": {
+          "elapsed_seconds": {
+            "minimum": 0.0,
+            "title": "Elapsed Seconds",
+            "type": "integer"
+          },
+          "instance_id": {
+            "title": "Instance Id",
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/EnvironmentalObservation"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "schema_version": {
+            "const": "1.0",
+            "default": "1.0",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "simulation_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Simulation Id",
+            "type": "string"
+          },
+          "source": {
+            "const": "synthetic_simulator",
+            "default": "synthetic_simulator",
+            "title": "Source",
+            "type": "string"
+          },
+          "state_version": {
+            "minimum": 0.0,
+            "title": "State Version",
+            "type": "integer"
+          },
+          "time_unit": {
+            "const": "s",
+            "default": "s",
+            "title": "Time Unit",
+            "type": "string"
+          }
+        },
+        "required": [
+          "simulation_id",
+          "instance_id",
+          "state_version",
+          "elapsed_seconds",
+          "items"
+        ],
+        "title": "Collection[EnvironmentalObservation]",
+        "type": "object"
+      },
+      "Collection_ScenarioInfo_": {
+        "additionalProperties": false,
+        "properties": {
+          "elapsed_seconds": {
+            "minimum": 0.0,
+            "title": "Elapsed Seconds",
+            "type": "integer"
+          },
+          "instance_id": {
+            "title": "Instance Id",
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ScenarioInfo"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "schema_version": {
+            "const": "1.0",
+            "default": "1.0",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "simulation_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Simulation Id",
+            "type": "string"
+          },
+          "source": {
+            "const": "synthetic_simulator",
+            "default": "synthetic_simulator",
+            "title": "Source",
+            "type": "string"
+          },
+          "state_version": {
+            "minimum": 0.0,
+            "title": "State Version",
+            "type": "integer"
+          },
+          "time_unit": {
+            "const": "s",
+            "default": "s",
+            "title": "Time Unit",
+            "type": "string"
+          }
+        },
+        "required": [
+          "simulation_id",
+          "instance_id",
+          "state_version",
+          "elapsed_seconds",
+          "items"
+        ],
+        "title": "Collection[ScenarioInfo]",
+        "type": "object"
+      },
+      "Collection_SimulationEvent_": {
+        "additionalProperties": false,
+        "properties": {
+          "elapsed_seconds": {
+            "minimum": 0.0,
+            "title": "Elapsed Seconds",
+            "type": "integer"
+          },
+          "instance_id": {
+            "title": "Instance Id",
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/SimulationEvent"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "schema_version": {
+            "const": "1.0",
+            "default": "1.0",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "simulation_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Simulation Id",
+            "type": "string"
+          },
+          "source": {
+            "const": "synthetic_simulator",
+            "default": "synthetic_simulator",
+            "title": "Source",
+            "type": "string"
+          },
+          "state_version": {
+            "minimum": 0.0,
+            "title": "State Version",
+            "type": "integer"
+          },
+          "time_unit": {
+            "const": "s",
+            "default": "s",
+            "title": "Time Unit",
+            "type": "string"
+          }
+        },
+        "required": [
+          "simulation_id",
+          "instance_id",
+          "state_version",
+          "elapsed_seconds",
+          "items"
+        ],
+        "title": "Collection[SimulationEvent]",
+        "type": "object"
+      },
+      "Collection_TaskSnapshot_": {
+        "additionalProperties": false,
+        "properties": {
+          "elapsed_seconds": {
+            "minimum": 0.0,
+            "title": "Elapsed Seconds",
+            "type": "integer"
+          },
+          "instance_id": {
+            "title": "Instance Id",
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/TaskSnapshot"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "schema_version": {
+            "const": "1.0",
+            "default": "1.0",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "simulation_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Simulation Id",
+            "type": "string"
+          },
+          "source": {
+            "const": "synthetic_simulator",
+            "default": "synthetic_simulator",
+            "title": "Source",
+            "type": "string"
+          },
+          "state_version": {
+            "minimum": 0.0,
+            "title": "State Version",
+            "type": "integer"
+          },
+          "time_unit": {
+            "const": "s",
+            "default": "s",
+            "title": "Time Unit",
+            "type": "string"
+          }
+        },
+        "required": [
+          "simulation_id",
+          "instance_id",
+          "state_version",
+          "elapsed_seconds",
+          "items"
+        ],
+        "title": "Collection[TaskSnapshot]",
+        "type": "object"
+      },
+      "Collection_WorkerSnapshot_": {
+        "additionalProperties": false,
+        "properties": {
+          "elapsed_seconds": {
+            "minimum": 0.0,
+            "title": "Elapsed Seconds",
+            "type": "integer"
+          },
+          "instance_id": {
+            "title": "Instance Id",
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/WorkerSnapshot"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "schema_version": {
+            "const": "1.0",
+            "default": "1.0",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "simulation_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Simulation Id",
+            "type": "string"
+          },
+          "source": {
+            "const": "synthetic_simulator",
+            "default": "synthetic_simulator",
+            "title": "Source",
+            "type": "string"
+          },
+          "state_version": {
+            "minimum": 0.0,
+            "title": "State Version",
+            "type": "integer"
+          },
+          "time_unit": {
+            "const": "s",
+            "default": "s",
+            "title": "Time Unit",
+            "type": "string"
+          }
+        },
+        "required": [
+          "simulation_id",
+          "instance_id",
+          "state_version",
+          "elapsed_seconds",
+          "items"
+        ],
+        "title": "Collection[WorkerSnapshot]",
+        "type": "object"
+      },
+      "Collection_ZoneSnapshot_": {
+        "additionalProperties": false,
+        "properties": {
+          "elapsed_seconds": {
+            "minimum": 0.0,
+            "title": "Elapsed Seconds",
+            "type": "integer"
+          },
+          "instance_id": {
+            "title": "Instance Id",
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ZoneSnapshot"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "schema_version": {
+            "const": "1.0",
+            "default": "1.0",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "simulation_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Simulation Id",
+            "type": "string"
+          },
+          "source": {
+            "const": "synthetic_simulator",
+            "default": "synthetic_simulator",
+            "title": "Source",
+            "type": "string"
+          },
+          "state_version": {
+            "minimum": 0.0,
+            "title": "State Version",
+            "type": "integer"
+          },
+          "time_unit": {
+            "const": "s",
+            "default": "s",
+            "title": "Time Unit",
+            "type": "string"
+          }
+        },
+        "required": [
+          "simulation_id",
+          "instance_id",
+          "state_version",
+          "elapsed_seconds",
+          "items"
+        ],
+        "title": "Collection[ZoneSnapshot]",
+        "type": "object"
+      },
+      "CommandRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "commands": {
+            "items": {
+              "$ref": "#/components/schemas/SimulationCommand"
+            },
+            "maxItems": 32,
+            "minItems": 1,
+            "title": "Commands",
+            "type": "array"
+          },
+          "expected_state_version": {
+            "minimum": 0.0,
+            "title": "Expected State Version",
+            "type": "integer"
+          },
+          "instance_id": {
+            "title": "Instance Id",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "1.0",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "simulation_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Simulation Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "schema_version",
+          "simulation_id",
+          "instance_id",
+          "expected_state_version",
+          "commands"
+        ],
+        "title": "CommandRequest",
+        "type": "object"
+      },
+      "Condition": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "unit": {
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "name",
+          "value",
+          "unit"
+        ],
+        "title": "Condition",
+        "type": "object"
+      },
+      "EngineeringScenarioName": {
+        "enum": [
+          "NORMAL_OPERATION",
+          "HEAT_ESCALATION",
+          "MULTI_ZONE_HEAT",
+          "RECOVERY",
+          "NO_ELIGIBLE_REPLACEMENT",
+          "SENSOR_FAILURE"
+        ],
+        "title": "EngineeringScenarioName",
+        "type": "string"
+      },
+      "EnvironmentalObservation": {
+        "additionalProperties": false,
+        "properties": {
+          "conditions": {
+            "items": {
+              "$ref": "#/components/schemas/Condition"
+            },
+            "title": "Conditions",
+            "type": "array"
+          },
+          "elapsed_seconds": {
+            "minimum": 0.0,
+            "title": "Elapsed Seconds",
+            "type": "integer"
+          },
+          "method": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Method"
+          },
+          "observed_at_seconds": {
+            "minimum": 0.0,
+            "title": "Observed At Seconds",
+            "type": "integer"
+          },
+          "quality": {
+            "enum": [
+              "good",
+              "missing",
+              "stale",
+              "invalid"
+            ],
+            "title": "Quality",
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/MeasurementSource"
+          },
+          "source_metadata": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "title": "Source Metadata",
+            "type": "object"
+          },
+          "wbgt_celsius": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Wbgt Celsius"
+          },
+          "wbgt_kind": {
+            "enum": [
+              "calculated",
+              "unavailable",
+              "estimated"
+            ],
+            "title": "Wbgt Kind",
+            "type": "string"
+          },
+          "wbgt_unit": {
+            "const": "degC",
+            "default": "degC",
+            "title": "Wbgt Unit",
+            "type": "string"
+          },
+          "zone_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Zone Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "zone_id",
+          "elapsed_seconds",
+          "observed_at_seconds",
+          "source",
+          "quality",
+          "wbgt_celsius",
+          "wbgt_kind",
+          "method",
+          "source_metadata",
+          "conditions"
+        ],
+        "title": "EnvironmentalObservation",
+        "type": "object"
+      },
+      "ErrorDetail": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "title": "Code",
+            "type": "string"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "title": "ErrorDetail",
+        "type": "object"
+      },
+      "ErrorResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ErrorDetail"
+          },
+          "schema_version": {
+            "const": "1.0",
+            "default": "1.0",
+            "title": "Schema Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "error"
+        ],
+        "title": "ErrorResponse",
+        "type": "object"
+      },
+      "Health": {
+        "additionalProperties": false,
+        "properties": {
+          "component": {
+            "const": "A",
+            "default": "A",
+            "title": "Component",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "1.0",
+            "default": "1.0",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "status": {
+            "const": "ok",
+            "default": "ok",
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "title": "Health",
+        "type": "object"
+      },
+      "MeasurementSource": {
+        "enum": [
+          "simulated",
+          "measured"
+        ],
+        "title": "MeasurementSource",
+        "type": "string"
+      },
+      "MutationRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "expected_state_version": {
+            "minimum": 0.0,
+            "title": "Expected State Version",
+            "type": "integer"
+          },
+          "instance_id": {
+            "title": "Instance Id",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "1.0",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "simulation_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Simulation Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "schema_version",
+          "simulation_id",
+          "instance_id",
+          "expected_state_version"
+        ],
+        "title": "MutationRequest",
+        "type": "object"
+      },
+      "ScenarioInfo": {
+        "additionalProperties": false,
+        "properties": {
+          "parameters": {
+            "additionalProperties": true,
+            "title": "Parameters",
+            "type": "object"
+          },
+          "scenario_id": {
+            "$ref": "#/components/schemas/EngineeringScenarioName"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "scenario_id",
+          "version",
+          "parameters"
+        ],
+        "title": "ScenarioInfo",
+        "type": "object"
+      },
+      "SimulationCommand": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "enum": [
+              "assign_task",
+              "unassign_task",
+              "start_work",
+              "stop_work",
+              "start_rest",
+              "end_rest",
+              "change_zone",
+              "change_task",
+              "mark_unavailable",
+              "mark_available"
+            ],
+            "title": "Action",
+            "type": "string"
+          },
+          "reason": {
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Reason",
+            "type": "string"
+          },
+          "task_id": {
+            "anyOf": [
+              {
+                "maxLength": 100,
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Task Id"
+          },
+          "worker_id": {
+            "anyOf": [
+              {
+                "maxLength": 100,
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Worker Id"
+          },
+          "zone_id": {
+            "anyOf": [
+              {
+                "maxLength": 100,
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Zone Id"
+          }
+        },
+        "required": [
+          "action",
+          "reason"
+        ],
+        "title": "SimulationCommand",
+        "type": "object"
+      },
+      "SimulationCommandResult": {
+        "additionalProperties": false,
+        "properties": {
+          "elapsed_seconds": {
+            "minimum": 0.0,
+            "title": "Elapsed Seconds",
+            "type": "integer"
+          },
+          "event_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Event Ids",
+            "type": "array"
+          },
+          "idempotency_key": {
+            "title": "Idempotency Key",
+            "type": "string"
+          },
+          "instance_id": {
+            "title": "Instance Id",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "1.0",
+            "default": "1.0",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "simulation_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Simulation Id",
+            "type": "string"
+          },
+          "snapshot": {
+            "$ref": "#/components/schemas/SimulationSnapshot"
+          },
+          "source": {
+            "const": "synthetic_simulator",
+            "default": "synthetic_simulator",
+            "title": "Source",
+            "type": "string"
+          },
+          "state_version": {
+            "minimum": 0.0,
+            "title": "State Version",
+            "type": "integer"
+          },
+          "status": {
+            "const": "applied",
+            "default": "applied",
+            "title": "Status",
+            "type": "string"
+          },
+          "time_unit": {
+            "const": "s",
+            "default": "s",
+            "title": "Time Unit",
+            "type": "string"
+          }
+        },
+        "required": [
+          "simulation_id",
+          "instance_id",
+          "state_version",
+          "elapsed_seconds",
+          "idempotency_key",
+          "event_ids",
+          "snapshot"
+        ],
+        "title": "SimulationCommandResult",
+        "type": "object"
+      },
+      "SimulationEvent": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "title": "Action",
+            "type": "string"
+          },
+          "elapsed_seconds": {
+            "minimum": 0.0,
+            "title": "Elapsed Seconds",
+            "type": "integer"
+          },
+          "event_id": {
+            "title": "Event Id",
+            "type": "string"
+          },
+          "new_worker": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WorkerSnapshot"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "old_worker": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WorkerSnapshot"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          },
+          "source": {
+            "enum": [
+              "simulated",
+              "scripted_scenario_input",
+              "api_command"
+            ],
+            "title": "Source",
+            "type": "string"
+          },
+          "worker_id": {
+            "anyOf": [
+              {
+                "maxLength": 100,
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Worker Id"
+          }
+        },
+        "required": [
+          "event_id",
+          "elapsed_seconds",
+          "action",
+          "reason",
+          "source"
+        ],
+        "title": "SimulationEvent",
+        "type": "object"
+      },
+      "SimulationSnapshot": {
+        "additionalProperties": false,
+        "properties": {
+          "assignments": {
+            "items": {
+              "$ref": "#/components/schemas/AssignmentSnapshot"
+            },
+            "title": "Assignments",
+            "type": "array"
+          },
+          "elapsed_seconds": {
+            "minimum": 0.0,
+            "title": "Elapsed Seconds",
+            "type": "integer"
+          },
+          "events": {
+            "items": {
+              "$ref": "#/components/schemas/SimulationEvent"
+            },
+            "title": "Events",
+            "type": "array"
+          },
+          "instance_id": {
+            "title": "Instance Id",
+            "type": "string"
+          },
+          "paused": {
+            "title": "Paused",
+            "type": "boolean"
+          },
+          "random_seed": {
+            "title": "Random Seed",
+            "type": "integer"
+          },
+          "scenario": {
+            "$ref": "#/components/schemas/EngineeringScenarioName"
+          },
+          "scenario_input": {
+            "additionalProperties": true,
+            "title": "Scenario Input",
+            "type": "object"
+          },
+          "scenario_phase": {
+            "enum": [
+              "scheduled",
+              "active",
+              "complete",
+              "stopped"
+            ],
+            "title": "Scenario Phase",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "1.0",
+            "default": "1.0",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "simulation_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Simulation Id",
+            "type": "string"
+          },
+          "source": {
+            "const": "synthetic_simulator",
+            "default": "synthetic_simulator",
+            "title": "Source",
+            "type": "string"
+          },
+          "state_version": {
+            "minimum": 0.0,
+            "title": "State Version",
+            "type": "integer"
+          },
+          "tasks": {
+            "items": {
+              "$ref": "#/components/schemas/TaskSnapshot"
+            },
+            "title": "Tasks",
+            "type": "array"
+          },
+          "tick_seconds": {
+            "minimum": 0.0,
+            "title": "Tick Seconds",
+            "type": "integer"
+          },
+          "time_unit": {
+            "const": "s",
+            "default": "s",
+            "title": "Time Unit",
+            "type": "string"
+          },
+          "valid": {
+            "const": true,
+            "default": true,
+            "title": "Valid",
+            "type": "boolean"
+          },
+          "workers": {
+            "items": {
+              "$ref": "#/components/schemas/WorkerSnapshot"
+            },
+            "title": "Workers",
+            "type": "array"
+          },
+          "zones": {
+            "items": {
+              "$ref": "#/components/schemas/ZoneSnapshot"
+            },
+            "title": "Zones",
+            "type": "array"
+          }
+        },
+        "required": [
+          "simulation_id",
+          "instance_id",
+          "state_version",
+          "elapsed_seconds",
+          "zones",
+          "workers",
+          "tasks",
+          "assignments",
+          "events",
+          "random_seed",
+          "tick_seconds",
+          "scenario",
+          "scenario_input",
+          "scenario_phase",
+          "paused"
+        ],
+        "title": "SimulationSnapshot",
+        "type": "object"
+      },
+      "TaskSnapshot": {
+        "additionalProperties": false,
+        "properties": {
+          "allowed_zone_ids": {
+            "items": {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+              "type": "string"
+            },
+            "title": "Allowed Zone Ids",
+            "type": "array"
+          },
+          "assigned_worker_id": {
+            "anyOf": [
+              {
+                "maxLength": 100,
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Assigned Worker Id"
+          },
+          "estimated_metabolic_rate_watts": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Estimated Metabolic Rate Watts"
+          },
+          "required_qualifications": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Required Qualifications",
+            "type": "array"
+          },
+          "task_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Task Id",
+            "type": "string"
+          },
+          "task_name": {
+            "title": "Task Name",
+            "type": "string"
+          },
+          "task_status": {
+            "$ref": "#/components/schemas/TaskStatus"
+          },
+          "workload_category": {
+            "$ref": "#/components/schemas/WorkloadCategory"
+          }
+        },
+        "required": [
+          "task_id",
+          "task_name",
+          "workload_category",
+          "allowed_zone_ids",
+          "estimated_metabolic_rate_watts",
+          "required_qualifications",
+          "task_status",
+          "assigned_worker_id"
+        ],
+        "title": "TaskSnapshot",
+        "type": "object"
+      },
+      "TaskStatus": {
+        "enum": [
+          "pending",
+          "assigned",
+          "in_progress",
+          "completed",
+          "cancelled"
+        ],
+        "title": "TaskStatus",
+        "type": "string"
+      },
+      "TickRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "delta_seconds": {
+            "default": 10,
+            "maximum": 86400.0,
+            "minimum": 1.0,
+            "title": "Delta Seconds",
+            "type": "integer"
+          },
+          "expected_state_version": {
+            "minimum": 0.0,
+            "title": "Expected State Version",
+            "type": "integer"
+          },
+          "instance_id": {
+            "title": "Instance Id",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "1.0",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "simulation_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Simulation Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "schema_version",
+          "simulation_id",
+          "instance_id",
+          "expected_state_version"
+        ],
+        "title": "TickRequest",
+        "type": "object"
+      },
+      "WorkStatus": {
+        "enum": [
+          "idle",
+          "working",
+          "resting"
+        ],
+        "title": "WorkStatus",
+        "type": "string"
+      },
+      "WorkerSnapshot": {
+        "additionalProperties": false,
+        "properties": {
+          "acclimatization_status": {
+            "$ref": "#/components/schemas/AcclimatizationStatus"
+          },
+          "availability_status": {
+            "$ref": "#/components/schemas/AvailabilityStatus"
+          },
+          "clothing_profile": {
+            "title": "Clothing Profile",
+            "type": "string"
+          },
+          "current_rest_period_seconds": {
+            "minimum": 0.0,
+            "title": "Current Rest Period Seconds",
+            "type": "integer"
+          },
+          "current_task_id": {
+            "anyOf": [
+              {
+                "maxLength": 100,
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Current Task Id"
+          },
+          "current_work_period_seconds": {
+            "minimum": 0.0,
+            "title": "Current Work Period Seconds",
+            "type": "integer"
+          },
+          "current_zone_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Current Zone Id",
+            "type": "string"
+          },
+          "display_name": {
+            "title": "Display Name",
+            "type": "string"
+          },
+          "exposure_elapsed_seconds": {
+            "minimum": 0.0,
+            "title": "Exposure Elapsed Seconds",
+            "type": "integer"
+          },
+          "qualifications": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Qualifications",
+            "type": "array"
+          },
+          "rest_elapsed_seconds": {
+            "minimum": 0.0,
+            "title": "Rest Elapsed Seconds",
+            "type": "integer"
+          },
+          "work_status": {
+            "$ref": "#/components/schemas/WorkStatus"
+          },
+          "worker_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Worker Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "worker_id",
+          "display_name",
+          "current_zone_id",
+          "qualifications",
+          "acclimatization_status",
+          "clothing_profile",
+          "current_task_id",
+          "work_status",
+          "availability_status",
+          "exposure_elapsed_seconds",
+          "rest_elapsed_seconds",
+          "current_work_period_seconds",
+          "current_rest_period_seconds"
+        ],
+        "title": "WorkerSnapshot",
+        "type": "object"
+      },
+      "WorkloadCategory": {
+        "enum": [
+          "light",
+          "moderate",
+          "heavy",
+          "very_heavy"
+        ],
+        "title": "WorkloadCategory",
+        "type": "string"
+      },
+      "ZoneKind": {
+        "enum": [
+          "work",
+          "rest"
+        ],
+        "title": "ZoneKind",
+        "type": "string"
+      },
+      "ZoneSnapshot": {
+        "additionalProperties": false,
+        "properties": {
+          "environment": {
+            "$ref": "#/components/schemas/EnvironmentalObservation"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/ZoneKind"
+          },
+          "zone_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "title": "Zone Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "zone_id",
+          "kind",
+          "environment"
+        ],
+        "title": "ZoneSnapshot",
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "HTTPBearer": {
+        "scheme": "bearer",
+        "type": "http"
+      }
+    }
+  },
+  "info": {
+    "description": "Synthetic simulator only. One process / one worker. No risk evaluation.",
+    "title": "HeatShift Component A",
+    "version": "1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/api/v1/events": {
+      "get": {
+        "operationId": "events_api_v1_events_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Collection_SimulationEvent_"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Events"
+      }
+    },
+    "/api/v1/observations": {
+      "get": {
+        "operationId": "observations_api_v1_observations_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Collection_EnvironmentalObservation_"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Observations"
+      }
+    },
+    "/api/v1/scenarios": {
+      "get": {
+        "operationId": "scenarios_api_v1_scenarios_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Collection_ScenarioInfo_"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Scenarios"
+      }
+    },
+    "/api/v1/scenarios/activate": {
+      "post": {
+        "operationId": "activate_api_v1_scenarios_activate_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": true,
+            "schema": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$",
+              "title": "Idempotency-Key",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActivateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimulationCommandResult"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Activate"
+      }
+    },
+    "/api/v1/simulation/commands": {
+      "post": {
+        "operationId": "commands_api_v1_simulation_commands_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": true,
+            "schema": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$",
+              "title": "Idempotency-Key",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommandRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimulationCommandResult"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Commands"
+      }
+    },
+    "/api/v1/simulation/pause": {
+      "post": {
+        "operationId": "pause_api_v1_simulation_pause_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": true,
+            "schema": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$",
+              "title": "Idempotency-Key",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MutationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimulationCommandResult"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Pause"
+      }
+    },
+    "/api/v1/simulation/reset": {
+      "post": {
+        "operationId": "reset_api_v1_simulation_reset_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": true,
+            "schema": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$",
+              "title": "Idempotency-Key",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MutationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimulationCommandResult"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Reset"
+      }
+    },
+    "/api/v1/simulation/resume": {
+      "post": {
+        "operationId": "resume_api_v1_simulation_resume_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": true,
+            "schema": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$",
+              "title": "Idempotency-Key",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MutationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimulationCommandResult"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Resume"
+      }
+    },
+    "/api/v1/simulation/state": {
+      "get": {
+        "operationId": "state_api_v1_simulation_state_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimulationSnapshot"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "State"
+      }
+    },
+    "/api/v1/simulation/tick": {
+      "post": {
+        "operationId": "tick_api_v1_simulation_tick_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": true,
+            "schema": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$",
+              "title": "Idempotency-Key",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TickRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimulationCommandResult"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Tick"
+      }
+    },
+    "/api/v1/tasks": {
+      "get": {
+        "operationId": "tasks_api_v1_tasks_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Collection_TaskSnapshot_"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Tasks"
+      }
+    },
+    "/api/v1/workers": {
+      "get": {
+        "operationId": "workers_api_v1_workers_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Collection_WorkerSnapshot_"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Workers"
+      }
+    },
+    "/api/v1/zones": {
+      "get": {
+        "operationId": "zones_api_v1_zones_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Collection_ZoneSnapshot_"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Zones"
+      }
+    },
+    "/health": {
+      "get": {
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "summary": "Health"
+      }
+    }
+  }
+}

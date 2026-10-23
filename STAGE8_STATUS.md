@@ -1,22 +1,19 @@
-# Stage 8 checklist
+# Reproducible engineering scenarios — completion record
 
-Status: PARTIAL — verified local implementation complete; real integration BLOCKED.
+Status: PASS.
+DONE: six versioned data definitions, seeded smooth environmental forcing, explicit
+operational scripts, scenario start/stop/reset/step/replay, simulated lifecycle events,
+CLI snapshot/event export and integration with the canonical engine clock.
+DONE: 16 focused tests passed in 0.45s; full regression 333 passed in 1.40s.
+DONE: all six scenarios ran 1000 ticks and an identical 1000-tick replay each.
+FAILED: no unexpected test failures; no repair paths needed.
+BLOCKED: none for local scenarios. No B/C or live sensor integration claimed.
 
-- DONE: inspect existing observation contract, scenario lifecycle and serialization.
-- DONE: optional environmental conditions/method/source metadata contract.
-- DONE: required snapshot fields, all workers/tasks/zones/events and assignment references.
-- DONE: JSON export, strict parse and model-based reference/time validation.
-- DONE: CLI scenario/seed/ticks/export controls, README and four example snapshots.
-- DONE: 277 tests; all three scenarios; 1000 ticks and identical replay per scenario.
-- FAILED: none unexpectedly; no repair attempts.
-- BLOCKED: existing Environmental/WBGT Simulator was not supplied; real integration pending.
-- NOT STARTED: anything beyond simulator scope.
-
-Created: snapshots.py, __main__.py, tests/test_snapshots.py, four examples/snapshots
-JSON files, FINAL_VERIFICATION.md, STAGE8_STATUS.md.
-Modified: environment.py (optional observation metadata), scenarios.py (fixture
-metadata and current-time read method), __init__.py (exports), README.md.
-No WBGT calculation was changed; no worker/task/clock/transition invariant was relaxed.
-
-See FINAL_VERIFICATION.md for exact commands, actual timings, long-run results and
-limitations. STOP after Stage 8.
+New source: engineering_scenarios.py, demo_cli.py, scenario_configs/demo_v1.json.
+New tests: test_engineering_scenarios.py.
+Updated: __init__.py exports, snapshots.py scenario-name validation, pyproject.toml
+package-data declaration. Existing domain, clock and transition modules were not changed.
+Examples: examples/engineering_scenarios.json and environmental_payload.json.
+The existing legacy scenario API and CLI remain operational. No risk scores, alert
+severity, automatic reassignment or forced safe outcome were introduced.
+Stop after this requested scope. See FINAL_VERIFICATION.md for results and limitations.

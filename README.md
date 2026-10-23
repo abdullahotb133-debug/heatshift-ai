@@ -1,214 +1,241 @@
-# HeatShift AI — Worker & Task Simulator
+# HeatShift AI — integrated engineering simulator
 
-Python 3.11+ deterministic, offline worker/task simulation with explicit assignments,
-activity transitions, time tracking, scenario scripts and validated JSON snapshots.
-Runtime uses only the Python standard library; tests use pytest.
+Deterministic Python 3.11+ synthetic environment, worker/task simulation and versioned
+demonstration scenarios. Standard-library simulation core; optional FastAPI/Pydantic HTTP boundary. Existing models
+and public APIs are preserved. There is no Component B/C integration, risk classifier,
+exposure limit, physiological model or automatic safety reassignment.
 
-**Integration status: local simulator and synthetic adapter verified. Real
-Environmental/WBGT Simulator integration is BLOCKED because its implementation was
-not provided.** No real sensor data, medical predictions, risk classifications,
-safety-driven reassignment or external service integrations are included.
+## Component A service — completed
 
-## Run from source
-
-From the `outputs/heatshift-ai` directory:
-
-```sh
-PYTHONPATH=src python3 -m heatshift_ai --scenario NORMAL --seed 42 --ticks 5 --output examples/snapshots/normal.json
-PYTHONPATH=src python3 -m heatshift_ai --scenario HEATWAVE --seed 42 --ticks 5 --output examples/snapshots/heatwave.json
-PYTHONPATH=src python3 -m heatshift_ai --scenario RECOVERY --seed 42 --ticks 5 --output examples/snapshots/recovery.json
-PYTHONPATH=src python3 -m heatshift_ai --scenario NORMAL --seed 42 --ticks 0 --output examples/snapshots/initial.json
-```
-
-The CLI explicitly describes itself as an **offline synthetic** exporter and uses
-SyntheticScenarioAdapter only. `--tick-seconds` defaults to 10, `--simulation-id` to
-SIM-001. Omit `--output` to print JSON to stdout. Output is the final snapshot; call
-the Python API between runs for intermediate snapshots. Output parent folders must
-exist. Existing output files are replaced after successful snapshot validation.
-
-## Test
-
-In a new Python 3.11+ environment:
+Run the integrated authenticated HTTP demonstration:
 
 ```sh
 python3 -m venv .venv
-.venv/bin/python -m pip install 'pytest>=8,<10'
+.venv/bin/python -m pip install -r requirements.lock
+.venv/bin/python examples/component_a_demo.py --output evidence.json
 .venv/bin/python -m pytest -q
 ```
 
-No package install is needed for tests: pyproject.toml configures the source path.
-The actual verified environment is documented in FINAL_VERIFICATION.md. It ran
-277 tests, including 1000 ticks per scenario and identical 1000-tick replays.
+For a persistent API server, export HEATSHIFT_API_TOKEN, then:
 
-## Integrated API
-
-```python
-from heatshift_ai import (
-    ScenarioController, SyntheticScenarioAdapter,
-    build_snapshot, export_snapshot, parse_snapshot, validate_snapshot,
-)
-
-controller = ScenarioController("RECOVERY", seed=42, tick_seconds=10,
-                                adapter_factory=SyntheticScenarioAdapter)
-initial = build_snapshot(controller)  # adapter read at t=0; no time advancement
-controller.run(5)
-snapshot = build_snapshot(controller, simulation_id="SIM-001")
-encoded = export_snapshot(snapshot)
-parsed = parse_snapshot(encoded)
-validated_state = validate_snapshot(parsed)
-controller.reset()
-controller.run(5)
-assert export_snapshot(build_snapshot(controller)) == encoded
+```sh
+HEATSHIFT_MODE=deployment PYTHONPATH=src .venv/bin/python -m uvicorn heatshift_ai.api:create_app --factory --host 127.0.0.1 --port 8000 --workers 1
 ```
 
-The controller requires an explicit adapter factory. The factory must return a
-fresh, isolated adapter on reset. Scenario execution is single-threaded; do not
-mutate configuration or call run/reset concurrently. Identical config, seed, scripts,
-Python runtime and deterministic adapter yield identical snapshots.
+Deployment requires a token of at least 32 characters. See `.env.example` and
+[handover/startup](COMPONENT_A_HANDOVER.md), [API contract](COMPONENT_A_API_CONTRACT.md),
+[OpenAPI](openapi.json), [all endpoint examples](examples/api/endpoint_examples.json),
+and [actual verification report](COMPONENT_A_TEST_REPORT.md).
+Final verification: **357 tests passed**, plus two matching real HTTP demonstration runs.
+B is represented only by an explicitly scripted test client; B/C are not implemented.
+Single process/worker only; state and retry cache are in memory. Dockerfile is supplied
+as an optional deployment recipe and has not been built here.
 
-## Snapshot contract
+## Run simulator CLI
 
-Required top-level fields are `simulation_id`, `source: "synthetic_simulator"`,
-`simulated_time_seconds`, `zones`, `workers`, `tasks`, and `events`. Additional fields
-are `assignments`, `scenario`, `random_seed`, and `tick_seconds`, allowing references
-and timing to be reconstructed and checked. All configured workers/tasks are included.
+From the repository root (the local deliverable is `outputs/heatshift-ai`):
 
-Each zone contains its ID/kind and an `environment` observation with:
+```sh
+PYTHONPATH=src python3 -m heatshift_ai.demo_cli --scenario NORMAL_OPERATION --seed 42 --ticks 12
+PYTHONPATH=src python3 -m heatshift_ai.demo_cli --scenario HEAT_ESCALATION --seed 42 --ticks 12 --output heat.json
+PYTHONPATH=src python3 -m heatshift_ai.demo_cli --scenario MULTI_ZONE_HEAT --seed 42 --ticks 12
+PYTHONPATH=src python3 -m heatshift_ai.demo_cli --scenario RECOVERY --seed 42 --ticks 12
+PYTHONPATH=src python3 -m heatshift_ai.demo_cli --scenario NO_ELIGIBLE_REPLACEMENT --seed 42 --ticks 12
+PYTHONPATH=src python3 -m heatshift_ai.demo_cli --scenario SENSOR_FAILURE --seed 42 --ticks 4 --failure-mode missing
+PYTHONPATH=src python3 -m heatshift_ai.demo_cli --scenario SENSOR_FAILURE --seed 42 --ticks 4 --failure-mode stale
+PYTHONPATH=src python3 -m heatshift_ai.demo_cli --scenario SENSOR_FAILURE --seed 42 --ticks 4 --failure-mode invalid --output failure.json --events-output events.json
+PYTHONPATH=src python3 examples/integrated_demo.py
+```
 
-- matching zone ID and integer elapsed seconds;
-- nullable `wbgt_celsius` and explicit `source` (`simulated` or `measured`);
-- `conditions`: supplied name/value/unit records, e.g. air_temperature/35/degC;
-- nullable `method` and a `source_metadata` string-key/string-value object.
+Default tick size is 10 simulated seconds; `--tick-seconds` overrides it. No sleep or
+background time advancement occurs. The existing `python -m heatshift_ai` CLI and
+NORMAL/HEATWAVE/RECOVERY ScenarioController remain compatible and retain their original
+constant-fixture defaults. Use **demo_cli** or IntegratedSimulationEngine for the new
+environmental component. This is an additional interface in the same package, not a
+replacement application.
 
-Conditions and metadata are taken from the adapter, never inferred from WBGT.
-Missing conditions are an empty array, missing method/WBGT are null, missing metadata
-is an empty object. SyntheticScenarioAdapter supplies constant WBGT fixtures only,
-so sample conditions are empty; this does not imply real atmospheric data was read.
-The typed adapter representation uses immutable tuples for conditions and metadata;
-the snapshot maps metadata to a JSON object without changing its values.
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.lock
+.venv/bin/python -m pytest -q
+```
 
-The top-level source labels the simulation. Each environment observation retains
-its own provenance: synthetic values are never labeled physical measurements.
-A real adapter could supply measured observations without relabeling them, but no
-actual measured integration has been exercised. Metadata describes the provider's
-method; it is not independently validated scientific evidence.
+No editable install is required for tests; pyproject.toml configures the source path.
+See FINAL_VERIFICATION.md for exact executed commands and limitations.
 
-`build_snapshot` reads every zone at the current simulated time and validates the
-result. `validate_snapshot` reconstructs the existing typed models to check IDs,
-enums, durations, qualifications, assignment exclusivity, worker/task links and
-zone references. It also checks observation timestamps and event references/order.
-`parse_snapshot` rejects malformed JSON, duplicate keys and nonfinite constants.
-This is consistency validation, not proof that a historical event was authorized
-or that a supplied environmental algorithm is scientifically valid.
+## Environmental component
 
-## Environment adapter boundary
+`EnvironmentalSimulator(seed=..., zones=..., forcing=...)` implements the unchanged
+EnvironmentAdapter.observe(zone_id, elapsed_seconds) contract and the existing named
+scenario override contract. `sample()` exposes the typed input channels; `observe()`
+returns the established EnvironmentObservation with conditions, method and metadata.
 
-EnvironmentAdapter defines `observe(zone_id=..., elapsed_seconds=...)` returning an
-EnvironmentObservation. Stage 8 adds optional conditions/method/source metadata;
-old adapters returning only the original fields remain compatible.
+ZoneEnvironmentConfig explicitly configures air temperature, relative humidity,
+globe temperature, air velocity, **natural** wet-bulb channel, solar load and variability.
+Defaults cover ZONE_A/B/C and a shaded cooler REST_ZONE. All zones, including rest,
+are configurable; unknown references are rejected.
 
-ScenarioEnvironmentAdapter additionally defines
-`request_scenario(EnvironmentScenarioRequest(...))` with scenario name, seed,
-request time and zone IDs. NORMAL requests baseline, HEATWAVE elevated, RECOVERY
-recovery conditions. Unsupported overrides must raise, not silently succeed.
-Concrete parameter mapping and upstream reset behavior require the missing real
-simulator. Existing WBGT calculations have not been modified or reimplemented.
+Generation uses shared slow sinusoidal drivers, small seeded zone phases and smoothstep
+thermal forcing. Increasing thermal forcing raises air/globe/natural-wet-bulb channel
+values, lowers RH and slightly reduces air speed. Solar globe response differs from
+shade. Readings are functions of seed, config and requested time: read order and number
+of calls do not change results. No independently sampled per-tick channel noise exists.
 
-The selected profile is requested once before running/reading. Reads validate zone
-and timestamp. The local synthetic adapter has arbitrary constant fixture WBGT
-values NORMAL=25, HEATWAVE=32, RECOVERY=23 °C, method
-`constant_fixture_not_wbgt_calculation`. These are not forecasts, sensor readings,
-occupational limits or physiological estimates. Test adapters additionally exercise
-condition/metadata transport and missing values; they do not establish real integration.
+**Model boundary:** channel trajectories are physically plausible demo inputs, not a
+validated meteorological or heat-transfer model. Natural wet-bulb is its own explicit
+simulated channel with a configured nominal value; it is NOT inferred from air/RH,
+NOT ordinary psychrometric wet-bulb and NOT a calibrated natural-wet-bulb estimator.
+A caller may set that channel to None; WBGT is then unavailable. No estimated-WBGT
+method is implemented or falsely claimed validated.
 
-A run or read failure stops the controller and requires explicit reset. No retry,
-external rollback or automatic synthetic fallback is attempted. Prior successful
-steps remain inspectable. A failed read may follow already advanced simulation time.
+Input validation enforces finite values and broad supported instrument/model ranges:
+air/natural wet-bulb -80..80 °C, globe -80..150 °C, RH 0..100%, air velocity 0..100 m/s.
+These are input sanity bounds, **not occupational safety limits**. Every generated
+sample is validated; extreme custom configurations may be rejected rather than
+silently returning invalid temperature channels. RH and velocity are bounded at
+physical limits in the synthetic generator. Default/tested configurations are well
+inside those limits. Natural wet-bulb is not generally constrained below air temperature
+because a naturally ventilated wetted sensor can receive radiant heat.
 
-## Workers, tasks, assignments and activity
+## WBGT and provenance
 
-WorkerSimulator defaults to 10 fictional workers W-01 through W-10. WorkerConfig
-centralizes immutable qualification pools, clothing, acclimatization, zones and
-initial status pairs. A local seeded RNG provides variation without modifying the
-global RNG. Names and IDs are stable. No clinical measurements are generated.
+WBGT calculation is a pure function in wbgt.py, separated from channel generation:
 
-TaskSimulator contains six configurable reusable TaskDefinitions: Site Inspection,
-Material Handling, Equipment Operation, Reinforcement Installation, Concrete
-Placement and Surveying. Qualitative workload labels are illustrative; metabolic
-rates default to null. Tasks begin pending/unassigned. TaskConfig validates known
-qualification and work-zone references. Definitions do not contain execution state;
-new_task() makes a separate Task snapshot. Specialized task skills are absent from
-the default Stage 2 population unless explicitly configured.
+- No solar load: `0.7*Tnw + 0.3*Tg`.
+- Solar load: `0.7*Tnw + 0.2*Tg + 0.1*Ta`.
 
-AssignmentManager validates eligibility, exclusive assignment and zones before one
-atomic state replacement. Assignment reserves work as ASSIGNED/IDLE. Explicit
-unassignment releases the task to PENDING, clears reciprocal references and preserves
-cumulative history. Resting/unavailable workers cannot receive assignments.
+Sources: [ISO 7243:2017](https://www.iso.org/standard/67188.html) and
+[NIOSH 2016-106, section 9.3.2](https://www.cdc.gov/niosh/docs/2016-106/pdfs/2016-106.pdf).
+Only the weighting formulas are used. Standard compliance of instruments, placement,
+response times or whole-worksite exposure assessment is not asserted.
 
-WorkerStateManager adds the following explicit worker commands, each requiring a
-nonblank reason. Successful commands append one immutable event containing action,
-worker ID, old/new complete states, reason and simulated timestamp. Rejected commands
-leave both state and events unchanged.
+`EnvironmentalSample.source` is measured or simulated; `WBGTResult.kind` is calculated
+or unavailable, independently of input provenance. The simulator always supplies
+simulated inputs. A measured-input unit test checks calculation provenance; it is not
+a live sensor integration. Calculated-from-simulated WBGT remains explicitly synthetic.
+Missing required inputs, unknown solar status, stale or invalid quality produce null
+WBGT with a reason, never a substituted estimate. No authoritative WBGT is derived
+solely from temperature and humidity. `estimated` is not an emitted classification.
 
-| Command | Preconditions and effect |
+Observation metadata includes generator version, observation provenance, solar state,
+quality/reason, original observed-at timestamp, WBGT kind/input source and the explicit
+natural-wet-bulb channel method. The top-level observation timestamp always matches
+the requested simulation time; stale data retain their older observed-at timestamp
+in metadata. Missing/invalid sensor channels are null. Stale synthetic channels retain
+the deterministic last-good-time values but have null current WBGT.
+
+## One integrated engine
+
+```python
+from heatshift_ai import IntegratedSimulationEngine, EngineCommand
+
+engine = IntegratedSimulationEngine()
+engine.initialize()                 # no clock advancement
+state = engine.get_state()          # immutable IntegratedState
+worker = next(w for w in state.simulation.workers if w.current_task_id)
+engine.tick(10)
+engine.execute(EngineCommand(action="start_rest", worker_id=worker.worker_id,
+                             zone_id="REST_ZONE", reason="explicit demo break"))
+engine.tick(10)
+engine.pause()
+engine.tick(100)                    # no time advancement
+engine.resume()
+text = engine.export_snapshot()
+engine.reset()                     # exact seeded initialization, cleared run history
+```
+
+IntegratedState holds the existing canonical SimulationState, matching-zone/time
+environment observations and existing TransitionEvents. There is one committed
+WorkerStateManager (a SimulationClock/AssignmentManager subtype). A tick prepares a
+private transaction copy of that controller and a deepcopy of the in-memory adapter;
+only after all commands, observations and validation succeed is the full frame
+published. These copies are speculative state, not separately running clocks.
+Failures leave the original clock, counters, assignments, events and adapter state
+unchanged. No remote-service transactional guarantees are claimed. Custom adapters
+must support deepcopy and have no external side effects.
+
+`initialize`, `tick`, `pause`, `resume`, `reset`, `get_state`, `execute`, `execute_batch`
+and `export_snapshot` are explicit. Commands are allowlisted and validated by the
+existing controllers; consumers cannot mutate frozen SimulationState through the API.
+Concurrent engine calls are serialized with a lock. Ordered command replay is
+deterministic; simultaneous thread scheduling order is not promised.
+
+EngineConfig accepts existing WorkerConfig and TaskConfig, custom environmental zone
+configs and explicit initial assignments. Default population is 10, catalog size 6,
+work zones 3 and rest zones 1. Generic models impose no fixed worker/zone counts;
+a three-worker/two-zone test verifies custom dimensions. The existing six-definition
+catalog contract is retained. Engine worker qualification pools are explicitly
+configured from task requirements at generation, never changed during ticks.
+Default setup chooses eligible idle/available workers in a stable order, using no
+environmental/risk input. Use initial_assignments=() to disable setup assignments or
+supply exact AssignmentRequests. Missing eligibility is preserved, not fabricated.
+
+Exposure is simulated active-work environmental exposure **time**, not clinical dose.
+It advances even when environment data are missing, because elapsed activity is known;
+missing conditions remain missing. Rest/work cumulative and uninterrupted counters
+use the existing rules. All established worker commands remain available through
+EngineCommand, including explicit rest, task change and availability operations.
+
+## Six versioned scenarios
+
+Definitions live in `src/heatshift_ai/scenario_configs/demo_v1.json`: version, scenario
+ID, seed, start time, duration, zone-specific initial/final thermal forcing and
+operational/failure parameters. No scenario-specific rule is added to worker/task models.
+
+| Scenario | Reproducible inputs and expected behavior |
 | --- | --- |
-| start_work | Idle/available, valid qualified reservation; task becomes in progress |
-| stop_work | Working; release task and become idle |
-| start_rest | Idle/working, valid rest zone; release any task, become resting/unavailable |
-| end_rest | Resting; become idle/available, retain current location |
-| change_zone | Known different zone; assignment must allow it; resting stays in rest zone |
-| change_task | Existing assignment, eligible different pending task; replace atomically |
-| mark_unavailable | Available; release task and stop work if needed |
-| mark_available | Unavailable and not resting; does not assign/start a task |
+| NORMAL_OPERATION | Baseline correlated trajectories; stable valid work setup |
+| HEAT_ESCALATION | ZONE_A increases smoothly by a configured 6 °C thermal driver over 120 s |
+| MULTI_ZONE_HEAT | A/B/C receive distinct 6/3/8 °C drivers; rest stays at its baseline |
+| RECOVERY | Work zones start with explicit elevated offsets and trend back to baseline; target inspection worker rests at 40 s and returns at 80 s |
+| NO_ELIGIBLE_REPLACEMENT | Explicit script marks all workers qualified for T-04 unavailable and releases its assignment; it stays pending with no eligible available replacement |
+| SENSOR_FAILURE | ZONE_A has missing/stale/invalid data during [30,90) s, quality-marked with null WBGT; valid synthetic readings return at 90 s |
 
-Use the same controller for state changes and ticks. Assignment APIs remain available
-and emit events on WorkerStateManager. No command is triggered by environmental risk.
-End-rest availability is an explicit setup choice, not a medical clearance.
+These durations and increments are demonstration parameters, not safety advice.
+At 120 s, recovery target work/rest totals are 80/40 s. In NO_ELIGIBLE_REPLACEMENT,
+qualifications are unchanged and no replacement is assigned automatically.
 
-## Time and history
+```python
+from heatshift_ai import EngineeringScenarioRunner, load_scenario
+runner = EngineeringScenarioRunner(load_scenario("HEAT_ESCALATION", seed=42))
+runner.start()
+runner.run(12)
+first = runner.export_snapshot()
+runner.reset()
+runner.run(12)
+assert runner.export_snapshot() == first
+runner.stop()
+```
 
-`tick(delta_seconds)` advances positive integer seconds, defaulting to the configured
-10-second interval. Construction never advances time. No real-time sleeping occurs.
-Work/exposure grows only while WORKING in a WORK zone; rest grows only while RESTING.
-Exposure is environmental exposure time, **not clinical heat dose**. The read-only
-`work_elapsed_seconds` alias uses the canonical serialized `exposure_elapsed_seconds`.
+Start initializes explicitly. Step uses only the engine clock; actions split a tick
+at exact timestamps, in stable tuple order, and the whole outer tick is atomic.
+Start/stop events use simulation timestamps; worker commands have their existing
+old/new-state events. Input definitions are separately labeled `scenario_input`, never
+sensor observations. Stop cancels queued commands and freezes the current thermal
+forcing level while retaining worker history; it does not force workers into a
+supposedly safe state. Reset creates a new run with identical inputs and clears the
+old run log. Export before reset to retain external history. At configured duration
+end, thermal trends hold their endpoint, scripts are exhausted and phase is complete;
+explicit ticking may continue. Stopping a sensor-failure scenario ends its injected
+fault; no sensor recovery is inferred from risk.
 
-Current work/rest periods are separate from cumulative counters. Stopping or resting
-ends the work period; end_rest ends the rest period. Work-to-work task/zone changes
-preserve uninterrupted duration. Pause/resume does not advance or catch up time.
-Clock reset restores its exact configured initial snapshot and resumes it;
-WorkerStateManager also clears its transition log. Export before reset to retain
-history externally. There is no automatic task completion or safety scheduler.
+## Snapshots, examples, compatibility and limits
 
-## Scenarios and scripts
+Snapshot top-level fields remain simulation_id, source, simulated_time_seconds, zones,
+workers, tasks and events, with assignments/seed/tick size/scenario metadata. Existing
+parse_snapshot/validate_snapshot are reused and now recognize the new scenario names.
+Environment source/method/quality survive serialization. JSON snapshots are detached
+copies; returned domain objects are immutable.
 
-Scenario setup explicitly gives the first six demo workers their designated task's
-skills, assigns W-01/T-01 through W-06/T-06 and starts them in allowed zones. This
-happens once as configuration before time advances, not during ordinary ticks.
-The remaining four workers stay idle. All scenarios share this setup and retain
-seeded clothing/acclimatization variation. Twelve setup events occur at second zero.
+Examples:
+- `examples/environmental_payload.json`: complete single-zone environmental payload.
+- `examples/engineering_scenarios.json`: all six scenarios at 0,40,80,120 s, including
+  complete snapshots and event logs; sensor faults are visible at 40/80 s.
+- `examples/integrated_demo.py`: executable work/rest integration demonstration.
+- Earlier examples/snapshots remain historical constant-fixture examples.
 
-NORMAL continues work. HEATWAVE only changes the environment request; it makes no
-worker decisions. RECOVERY scripts W-01 to rest at second 20, then end rest, assign
-T-01 in ZONE_A and start work at second 40. These demo times are not safety advice.
-After 50 seconds W-01 has 30 seconds work, 20 rest and 10 consecutive work.
-
-Pass a tuple of ScriptedAction objects to replace default actions. They specify an
-integer timestamp, worker command, worker ID, reason and required task/zone arguments.
-Stable input order resolves equal timestamps. Ticks split at off-grid action times;
-endpoint actions execute before observations. `run(0)` is a no-op. Repeated run calls
-continue without duplicating events. Reset recreates the seeded setup, fresh adapter,
-initial setup events and script cursor, clearing observations/failure state.
-
-## Deliverables and limitations
-
-- Source: src/heatshift_ai; tests: tests; CLI: python -m heatshift_ai.
-- Examples: examples/snapshots/{initial,normal,heatwave,recovery}.json.
-- Final results and exact verified commands: FINAL_VERIFICATION.md.
-- Historical stage decisions: STAGE1_STATUS.md through STAGE8_STATUS.md.
-
-Snapshots retain complete event states and scenarios retain observation history in
-memory; streaming persistence and production-scale retention are not implemented.
-The exercised runtime was Python 3.13.5. Python 3.11, installed-wheel packaging and
-real environmental integration were not tested. No numerical coverage percentage
-was collected. No n8n, Supabase, dashboard or external service dependency exists.
+FINAL_VERIFICATION.md records actual tests and limits. No live sensors, calibrated
+weather model, B/C integration, field validation, n8n, Supabase, frontend or network
+service was added. In-memory event/observation retention is for demonstrations, not
+unbounded production streaming. Python 3.13.5 was exercised; Python 3.11 runtime and
+wheel installation remain untested. No line/branch coverage percentage was measured.
