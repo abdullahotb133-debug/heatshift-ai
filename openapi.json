@@ -30,6 +30,8 @@
             "type": "string"
           },
           "instance_id": {
+            "maxLength": 100,
+            "minLength": 1,
             "title": "Instance Id",
             "type": "string"
           },
@@ -44,7 +46,7 @@
           "simulation_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Simulation Id",
             "type": "string"
           }
@@ -70,21 +72,21 @@
           "task_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Task Id",
             "type": "string"
           },
           "worker_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Worker Id",
             "type": "string"
           },
           "zone_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Zone Id",
             "type": "string"
           }
@@ -115,6 +117,8 @@
             "type": "integer"
           },
           "instance_id": {
+            "maxLength": 100,
+            "minLength": 1,
             "title": "Instance Id",
             "type": "string"
           },
@@ -131,10 +135,21 @@
             "title": "Schema Version",
             "type": "string"
           },
+          "simulated_at": {
+            "format": "date-time",
+            "title": "Simulated At",
+            "type": "string"
+          },
+          "simulation_epoch": {
+            "default": "2026-01-01T00:00:00Z",
+            "format": "date-time",
+            "title": "Simulation Epoch",
+            "type": "string"
+          },
           "simulation_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Simulation Id",
             "type": "string"
           },
@@ -149,6 +164,12 @@
             "title": "State Version",
             "type": "integer"
           },
+          "time_basis": {
+            "const": "simulation_epoch",
+            "default": "simulation_epoch",
+            "title": "Time Basis",
+            "type": "string"
+          },
           "time_unit": {
             "const": "s",
             "default": "s",
@@ -161,6 +182,7 @@
           "instance_id",
           "state_version",
           "elapsed_seconds",
+          "simulated_at",
           "items"
         ],
         "title": "Collection[EnvironmentalObservation]",
@@ -175,6 +197,8 @@
             "type": "integer"
           },
           "instance_id": {
+            "maxLength": 100,
+            "minLength": 1,
             "title": "Instance Id",
             "type": "string"
           },
@@ -191,10 +215,21 @@
             "title": "Schema Version",
             "type": "string"
           },
+          "simulated_at": {
+            "format": "date-time",
+            "title": "Simulated At",
+            "type": "string"
+          },
+          "simulation_epoch": {
+            "default": "2026-01-01T00:00:00Z",
+            "format": "date-time",
+            "title": "Simulation Epoch",
+            "type": "string"
+          },
           "simulation_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Simulation Id",
             "type": "string"
           },
@@ -209,6 +244,12 @@
             "title": "State Version",
             "type": "integer"
           },
+          "time_basis": {
+            "const": "simulation_epoch",
+            "default": "simulation_epoch",
+            "title": "Time Basis",
+            "type": "string"
+          },
           "time_unit": {
             "const": "s",
             "default": "s",
@@ -221,6 +262,7 @@
           "instance_id",
           "state_version",
           "elapsed_seconds",
+          "simulated_at",
           "items"
         ],
         "title": "Collection[ScenarioInfo]",
@@ -235,6 +277,8 @@
             "type": "integer"
           },
           "instance_id": {
+            "maxLength": 100,
+            "minLength": 1,
             "title": "Instance Id",
             "type": "string"
           },
@@ -251,10 +295,21 @@
             "title": "Schema Version",
             "type": "string"
           },
+          "simulated_at": {
+            "format": "date-time",
+            "title": "Simulated At",
+            "type": "string"
+          },
+          "simulation_epoch": {
+            "default": "2026-01-01T00:00:00Z",
+            "format": "date-time",
+            "title": "Simulation Epoch",
+            "type": "string"
+          },
           "simulation_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Simulation Id",
             "type": "string"
           },
@@ -269,6 +324,12 @@
             "title": "State Version",
             "type": "integer"
           },
+          "time_basis": {
+            "const": "simulation_epoch",
+            "default": "simulation_epoch",
+            "title": "Time Basis",
+            "type": "string"
+          },
           "time_unit": {
             "const": "s",
             "default": "s",
@@ -281,6 +342,7 @@
           "instance_id",
           "state_version",
           "elapsed_seconds",
+          "simulated_at",
           "items"
         ],
         "title": "Collection[SimulationEvent]",
@@ -295,6 +357,8 @@
             "type": "integer"
           },
           "instance_id": {
+            "maxLength": 100,
+            "minLength": 1,
             "title": "Instance Id",
             "type": "string"
           },
@@ -311,10 +375,21 @@
             "title": "Schema Version",
             "type": "string"
           },
+          "simulated_at": {
+            "format": "date-time",
+            "title": "Simulated At",
+            "type": "string"
+          },
+          "simulation_epoch": {
+            "default": "2026-01-01T00:00:00Z",
+            "format": "date-time",
+            "title": "Simulation Epoch",
+            "type": "string"
+          },
           "simulation_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Simulation Id",
             "type": "string"
           },
@@ -329,6 +404,12 @@
             "title": "State Version",
             "type": "integer"
           },
+          "time_basis": {
+            "const": "simulation_epoch",
+            "default": "simulation_epoch",
+            "title": "Time Basis",
+            "type": "string"
+          },
           "time_unit": {
             "const": "s",
             "default": "s",
@@ -341,6 +422,7 @@
           "instance_id",
           "state_version",
           "elapsed_seconds",
+          "simulated_at",
           "items"
         ],
         "title": "Collection[TaskSnapshot]",
@@ -355,6 +437,8 @@
             "type": "integer"
           },
           "instance_id": {
+            "maxLength": 100,
+            "minLength": 1,
             "title": "Instance Id",
             "type": "string"
           },
@@ -371,10 +455,21 @@
             "title": "Schema Version",
             "type": "string"
           },
+          "simulated_at": {
+            "format": "date-time",
+            "title": "Simulated At",
+            "type": "string"
+          },
+          "simulation_epoch": {
+            "default": "2026-01-01T00:00:00Z",
+            "format": "date-time",
+            "title": "Simulation Epoch",
+            "type": "string"
+          },
           "simulation_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Simulation Id",
             "type": "string"
           },
@@ -389,6 +484,12 @@
             "title": "State Version",
             "type": "integer"
           },
+          "time_basis": {
+            "const": "simulation_epoch",
+            "default": "simulation_epoch",
+            "title": "Time Basis",
+            "type": "string"
+          },
           "time_unit": {
             "const": "s",
             "default": "s",
@@ -401,6 +502,7 @@
           "instance_id",
           "state_version",
           "elapsed_seconds",
+          "simulated_at",
           "items"
         ],
         "title": "Collection[WorkerSnapshot]",
@@ -415,6 +517,8 @@
             "type": "integer"
           },
           "instance_id": {
+            "maxLength": 100,
+            "minLength": 1,
             "title": "Instance Id",
             "type": "string"
           },
@@ -431,10 +535,21 @@
             "title": "Schema Version",
             "type": "string"
           },
+          "simulated_at": {
+            "format": "date-time",
+            "title": "Simulated At",
+            "type": "string"
+          },
+          "simulation_epoch": {
+            "default": "2026-01-01T00:00:00Z",
+            "format": "date-time",
+            "title": "Simulation Epoch",
+            "type": "string"
+          },
           "simulation_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Simulation Id",
             "type": "string"
           },
@@ -449,6 +564,12 @@
             "title": "State Version",
             "type": "integer"
           },
+          "time_basis": {
+            "const": "simulation_epoch",
+            "default": "simulation_epoch",
+            "title": "Time Basis",
+            "type": "string"
+          },
           "time_unit": {
             "const": "s",
             "default": "s",
@@ -461,6 +582,7 @@
           "instance_id",
           "state_version",
           "elapsed_seconds",
+          "simulated_at",
           "items"
         ],
         "title": "Collection[ZoneSnapshot]",
@@ -484,6 +606,8 @@
             "type": "integer"
           },
           "instance_id": {
+            "maxLength": 100,
+            "minLength": 1,
             "title": "Instance Id",
             "type": "string"
           },
@@ -495,7 +619,7 @@
           "simulation_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Simulation Id",
             "type": "string"
           }
@@ -579,6 +703,11 @@
             ],
             "title": "Method"
           },
+          "observed_at": {
+            "format": "date-time",
+            "title": "Observed At",
+            "type": "string"
+          },
           "observed_at_seconds": {
             "minimum": 0.0,
             "title": "Observed At Seconds",
@@ -633,7 +762,7 @@
           "zone_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Zone Id",
             "type": "string"
           }
@@ -642,6 +771,7 @@
           "zone_id",
           "elapsed_seconds",
           "observed_at_seconds",
+          "observed_at",
           "source",
           "quality",
           "wbgt_celsius",
@@ -733,6 +863,8 @@
             "type": "integer"
           },
           "instance_id": {
+            "maxLength": 100,
+            "minLength": 1,
             "title": "Instance Id",
             "type": "string"
           },
@@ -744,7 +876,7 @@
           "simulation_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Simulation Id",
             "type": "string"
           }
@@ -812,7 +944,7 @@
               {
                 "maxLength": 100,
                 "minLength": 1,
-                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
                 "type": "string"
               },
               {
@@ -826,7 +958,7 @@
               {
                 "maxLength": 100,
                 "minLength": 1,
-                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
                 "type": "string"
               },
               {
@@ -840,7 +972,7 @@
               {
                 "maxLength": 100,
                 "minLength": 1,
-                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
                 "type": "string"
               },
               {
@@ -860,6 +992,16 @@
       "SimulationCommandResult": {
         "additionalProperties": false,
         "properties": {
+          "after_state_version": {
+            "minimum": 0.0,
+            "title": "After State Version",
+            "type": "integer"
+          },
+          "before_state_version": {
+            "minimum": 0.0,
+            "title": "Before State Version",
+            "type": "integer"
+          },
           "elapsed_seconds": {
             "minimum": 0.0,
             "title": "Elapsed Seconds",
@@ -877,6 +1019,8 @@
             "type": "string"
           },
           "instance_id": {
+            "maxLength": 100,
+            "minLength": 1,
             "title": "Instance Id",
             "type": "string"
           },
@@ -886,10 +1030,21 @@
             "title": "Schema Version",
             "type": "string"
           },
+          "simulated_at": {
+            "format": "date-time",
+            "title": "Simulated At",
+            "type": "string"
+          },
+          "simulation_epoch": {
+            "default": "2026-01-01T00:00:00Z",
+            "format": "date-time",
+            "title": "Simulation Epoch",
+            "type": "string"
+          },
           "simulation_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Simulation Id",
             "type": "string"
           },
@@ -913,6 +1068,12 @@
             "title": "Status",
             "type": "string"
           },
+          "time_basis": {
+            "const": "simulation_epoch",
+            "default": "simulation_epoch",
+            "title": "Time Basis",
+            "type": "string"
+          },
           "time_unit": {
             "const": "s",
             "default": "s",
@@ -925,6 +1086,9 @@
           "instance_id",
           "state_version",
           "elapsed_seconds",
+          "simulated_at",
+          "before_state_version",
+          "after_state_version",
           "idempotency_key",
           "event_ids",
           "snapshot"
@@ -938,6 +1102,16 @@
           "action": {
             "title": "Action",
             "type": "string"
+          },
+          "after_state_version": {
+            "minimum": 0.0,
+            "title": "After State Version",
+            "type": "integer"
+          },
+          "before_state_version": {
+            "minimum": 0.0,
+            "title": "Before State Version",
+            "type": "integer"
           },
           "elapsed_seconds": {
             "minimum": 0.0,
@@ -957,6 +1131,11 @@
                 "type": "null"
               }
             ]
+          },
+          "occurred_at": {
+            "format": "date-time",
+            "title": "Occurred At",
+            "type": "string"
           },
           "old_worker": {
             "anyOf": [
@@ -986,7 +1165,7 @@
               {
                 "maxLength": 100,
                 "minLength": 1,
-                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
                 "type": "string"
               },
               {
@@ -997,6 +1176,9 @@
           }
         },
         "required": [
+          "occurred_at",
+          "before_state_version",
+          "after_state_version",
           "event_id",
           "elapsed_seconds",
           "action",
@@ -1029,6 +1211,8 @@
             "type": "array"
           },
           "instance_id": {
+            "maxLength": 100,
+            "minLength": 1,
             "title": "Instance Id",
             "type": "string"
           },
@@ -1064,10 +1248,21 @@
             "title": "Schema Version",
             "type": "string"
           },
+          "simulated_at": {
+            "format": "date-time",
+            "title": "Simulated At",
+            "type": "string"
+          },
+          "simulation_epoch": {
+            "default": "2026-01-01T00:00:00Z",
+            "format": "date-time",
+            "title": "Simulation Epoch",
+            "type": "string"
+          },
           "simulation_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Simulation Id",
             "type": "string"
           },
@@ -1093,6 +1288,12 @@
             "minimum": 0.0,
             "title": "Tick Seconds",
             "type": "integer"
+          },
+          "time_basis": {
+            "const": "simulation_epoch",
+            "default": "simulation_epoch",
+            "title": "Time Basis",
+            "type": "string"
           },
           "time_unit": {
             "const": "s",
@@ -1126,6 +1327,7 @@
           "instance_id",
           "state_version",
           "elapsed_seconds",
+          "simulated_at",
           "zones",
           "workers",
           "tasks",
@@ -1148,7 +1350,7 @@
             "items": {
               "maxLength": 100,
               "minLength": 1,
-              "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
               "type": "string"
             },
             "title": "Allowed Zone Ids",
@@ -1159,7 +1361,7 @@
               {
                 "maxLength": 100,
                 "minLength": 1,
-                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
                 "type": "string"
               },
               {
@@ -1189,7 +1391,7 @@
           "task_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Task Id",
             "type": "string"
           },
@@ -1244,6 +1446,8 @@
             "type": "integer"
           },
           "instance_id": {
+            "maxLength": 100,
+            "minLength": 1,
             "title": "Instance Id",
             "type": "string"
           },
@@ -1255,7 +1459,7 @@
           "simulation_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Simulation Id",
             "type": "string"
           }
@@ -1301,7 +1505,7 @@
               {
                 "maxLength": 100,
                 "minLength": 1,
-                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
                 "type": "string"
               },
               {
@@ -1318,7 +1522,7 @@
           "current_zone_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Current Zone Id",
             "type": "string"
           },
@@ -1349,7 +1553,7 @@
           "worker_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Worker Id",
             "type": "string"
           }
@@ -1402,7 +1606,7 @@
           "zone_id": {
             "maxLength": 100,
             "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
             "title": "Zone Id",
             "type": "string"
           }
@@ -1473,6 +1677,16 @@
               }
             },
             "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
           },
           "422": {
             "content": {
@@ -1557,6 +1771,16 @@
             },
             "description": "Conflict"
           },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
+          },
           "422": {
             "content": {
               "application/json": {
@@ -1639,6 +1863,16 @@
               }
             },
             "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
           },
           "422": {
             "content": {
@@ -1747,6 +1981,16 @@
             },
             "description": "Conflict"
           },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
+          },
           "422": {
             "content": {
               "application/json": {
@@ -1853,6 +2097,16 @@
               }
             },
             "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
           },
           "422": {
             "content": {
@@ -1961,6 +2215,16 @@
             },
             "description": "Conflict"
           },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
+          },
           "422": {
             "content": {
               "application/json": {
@@ -2067,6 +2331,16 @@
               }
             },
             "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
           },
           "422": {
             "content": {
@@ -2175,6 +2449,16 @@
             },
             "description": "Conflict"
           },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
+          },
           "422": {
             "content": {
               "application/json": {
@@ -2257,6 +2541,16 @@
               }
             },
             "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
           },
           "422": {
             "content": {
@@ -2365,6 +2659,16 @@
             },
             "description": "Conflict"
           },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
+          },
           "422": {
             "content": {
               "application/json": {
@@ -2447,6 +2751,16 @@
               }
             },
             "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
           },
           "422": {
             "content": {
@@ -2531,6 +2845,16 @@
             },
             "description": "Conflict"
           },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
+          },
           "422": {
             "content": {
               "application/json": {
@@ -2614,6 +2938,16 @@
             },
             "description": "Conflict"
           },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
+          },
           "422": {
             "content": {
               "application/json": {
@@ -2696,6 +3030,16 @@
               }
             },
             "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
           },
           "422": {
             "content": {

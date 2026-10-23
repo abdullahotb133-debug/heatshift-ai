@@ -114,3 +114,17 @@ in-memory deepcopy-able providers only, not external side effects. Events/snapsh
 idempotent responses consume memory; operation limit prevents unbounded accepted writes,
 but production retention/storage and load testing remain future work. No coverage percentage
 or Python-version matrix is claimed.
+
+## Final engineering review update
+
+The latest regression is **369 passed**. New audit, five-repository reference review and
+focused plan are in COMPONENT_A_AUDIT.md, COMPONENT_A_REFERENCE_REVIEW.md and
+COMPONENT_A_IMPROVEMENT_PLAN.md. No external source code or new dependencies were copied.
+
+Run the same startup/demo commands above. The demo now first submits a deliberately
+unqualified assignment (422, exact state unchanged), then the valid atomic reassignment.
+Read the API contract's final-review section for new ISO 8601 projections, event commit
+versions/order, body limit and configurable task count. Regenerate strict B/C clients
+from openapi.json before integration. Simulation time remains deterministic; ISO dates
+are not claims of actual acquisition time. The existing provider interface prepares for
+sensors, but hardware connectivity/calibration remain explicitly unverified.

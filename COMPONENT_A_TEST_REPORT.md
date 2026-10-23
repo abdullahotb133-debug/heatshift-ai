@@ -66,3 +66,44 @@ Stage 8 also independently verified 1000 ticks + replay for every engineering sc
 The core engine remains framework-independent. APIService uses Pydantic only to validate
 HTTP projections before commit; FastAPI is confined to api.py. No risk thresholds,
 physiological predictions, n8n workflow, Supabase database or React dashboard was added.
+
+## Final engineering review — 2026-10-23 (supersedes totals above)
+
+Baseline full suite: 357 passing tests before edits. After the core improvements:
+357 passed, 1 warning in 2.76s. Added 12 focused review tests without deleting or changing
+any earlier test. Final command with the same interpreter documented above:
+
+```sh
+"$PY" -m pytest -q outputs/heatshift-ai/tests --junitxml=work/final-review/results.xml
+# 369 passed, 1 warning in 2.90s
+PYTHONPATH=outputs/heatshift-ai/src "$PY" outputs/heatshift-ai/examples/export_api_contract.py
+# Exported OpenAPI and 14 executed endpoint examples
+"$PY" outputs/heatshift-ai/examples/component_a_demo.py --output outputs/heatshift-ai/examples/api/component_a_evidence.json
+"$PY" outputs/heatshift-ai/examples/component_a_demo.py --output work/final-review/replay.json
+cmp outputs/heatshift-ai/examples/api/component_a_evidence.json work/final-review/replay.json
+```
+
+Both new HTTP runs succeeded, elapsed=80; canonical evidence compares byte-identically.
+Expected rejection logs name W-04's missing inspection qualification. The demo verifies
+HTTP 422 and exact state equality before proceeding to the valid reassignment. These
+are intentional negative cases, not hidden failures. No test failure required repairing.
+
+New coverage: task counts 1/3/8 and invalid count types; unchanged worker qualifications;
+ISO timestamp projections including stale observed time; before/after versions; same-time
+commit order; body limit before parsing; streamed bodies with false Content-Length;
+configuration validation; domain-aligned IDs; exact exported OpenAPI equality; all 14
+endpoint example coverage. Full regression also executes scenario replay and prior
+API/security/rollback tests. No new dependency was introduced. The known upstream
+TestClient/httpx deprecation warning remains non-failing.
+
+Review changes: task_simulator.py, api_contracts.py, api_service.py, api.py;
+new http_limits.py and tests/test_final_review.py; updated component_a_demo.py,
+OpenAPI/examples, .env.example, README and handover/contract/report; new audit,
+reference review and improvement plan. Worker/task/assignment/clock/WBGT domain
+implementations and all earlier tests remain intact.
+
+Ready for local Component B integration under the documented single-process contract.
+Physical hardware, Docker/cloud deployment, load testing and distributed persistence
+remain UNVERIFIED/outside this implementation. No unresolved critical defect was found
+in the exercised scope. The five external repositories were inspected, not executed;
+no risk rules, model source or scheduling algorithms were imported.

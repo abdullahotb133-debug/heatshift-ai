@@ -87,7 +87,7 @@ an old command against a new instance without first reading and reconsidering it
 
 Reset rebuilds the active scenario at time zero using the same seed, clears run history,
 resumes, rebases scenario/failure timing, and keeps the monotonic API state version.
-Worker event IDs have a reset-epoch prefix. Consumers should key records by instance_id
+Worker event IDs include their creation state version. Consumers should key records by instance_id
 and event_id; snapshots by instance_id and state_version. Reset is an explicit new run.
 
 ## Errors and security
@@ -131,3 +131,42 @@ scripted test client, not a risk assessment algorithm. See `examples/component_a
 
 Framework references: [FastAPI CORS](https://fastapi.tiangolo.com/tutorial/cors/),
 [FastAPI testing](https://fastapi.tiangolo.com/tutorial/testing/).
+
+## Final review additions — 2026-10-23
+
+Schema 1.0 adds response metadata without changing endpoint paths or accepted command
+names. Consumers should tolerate additive response fields. Regenerate strict clients
+from the current OpenAPI; old clients forbidding unknown response fields need updating.
+All context envelopes now include `simulation_epoch`, `simulated_at` and
+`time_basis: "simulation_epoch"`. The fixed UTC epoch is 2026-01-01T00:00:00Z;
+ISO 8601 values are epoch + canonical elapsed integer seconds, not wall-clock capture
+timestamps. Environmental `observed_at` uses observed_at_seconds, so stale data retains
+its earlier timestamp. Event `occurred_at` follows event elapsed_seconds.
+
+SimulationCommandResult and SimulationEvent include explicit `before_state_version`
+and `after_state_version`. Initial setup events are version 0 → 0. All worker changes
+within one command batch share its commit versions and preserve action order. API
+control events follow the worker changes they committed, including at equal timestamps.
+Reset clears run events and creates new version-namespaced IDs; idempotency remains.
+
+`HEATSHIFT_MAX_BODY_BYTES` defaults to 65536 (configurable 1024–1048576). Bodies exceeding
+that limit return HTTP 413 / `request_too_large` before JSON parsing. Actual streamed
+bytes are counted even without Content-Length or with a false smaller declaration.
+Existing field/count limits still apply. IDs now use the same leading-letter rule as
+the domain. No raw credentials or request-body values are returned in validation errors.
+
+Task populations are configurable through Python `TaskConfig(count=N, definitions=...)`;
+the definition count must match the declared count. Default remains six. This does not
+add an endpoint for arbitrary client state mutation and does not grant worker skills.
+
+### Future physical sensor boundary
+
+Implement the existing `EnvironmentAdapter.observe(zone_id, elapsed_seconds)` contract;
+map validated physical input channels through EnvironmentalSample with source measured
+and retain provider identity, observed time, units and quality. Calculate WBGT separately
+only with required natural wet-bulb/globe inputs. Return null for unavailable WBGT;
+do not relabel generated fallback values as measured. The integrated engine can consume
+adapters, but its transactions require side-effect-free/deepcopy-able in-memory readings.
+Physical acquisition must stage validated readings outside the simulation transaction.
+No physical transport or authenticated sensor-ingestion HTTP endpoint is implemented;
+actual sensor integration and time synchronization remain UNVERIFIED future work.

@@ -9,3 +9,8 @@ Not implemented/claimed: real Component B/C, live sensors, field calibration, da
 cloud deployment or distributed coordination. Docker recipe provided but not executed.
 No active implementation blockers. See COMPONENT_A_HANDOVER.md, COMPONENT_A_API_CONTRACT.md
 and COMPONENT_A_TEST_REPORT.md. Stop at completed Component A.
+
+2026-10-23 review: 369 passing tests; improved real HTTP demo proves rejected
+unqualified assignment leaves state unchanged, followed by valid handover. Two fresh
+runs yield identical canonical JSON. See final-review section of test report and new
+audit/reference-review/improvement-plan documents. External deployment remains unverified.

@@ -26,7 +26,7 @@ Deployment requires a token of at least 32 characters. See `.env.example` and
 [handover/startup](COMPONENT_A_HANDOVER.md), [API contract](COMPONENT_A_API_CONTRACT.md),
 [OpenAPI](openapi.json), [all endpoint examples](examples/api/endpoint_examples.json),
 and [actual verification report](COMPONENT_A_TEST_REPORT.md).
-Final verification: **357 tests passed**, plus two matching real HTTP demonstration runs.
+Final verification: **369 tests passed**, plus two matching real HTTP demonstration runs.
 B is represented only by an explicitly scripted test client; B/C are not implemented.
 Single process/worker only; state and retry cache are in memory. Dockerfile is supplied
 as an optional deployment recipe and has not been built here.
@@ -239,3 +239,12 @@ weather model, B/C integration, field validation, n8n, Supabase, frontend or net
 service was added. In-memory event/observation retention is for demonstrations, not
 unbounded production streaming. Python 3.13.5 was exercised; Python 3.11 runtime and
 wheel installation remain untested. No line/branch coverage percentage was measured.
+
+## Final engineering review
+
+See [audit](COMPONENT_A_AUDIT.md), [external reference review](COMPONENT_A_REFERENCE_REVIEW.md)
+and [improvement plan](COMPONENT_A_IMPROVEMENT_PLAN.md). Current API metadata includes
+ISO 8601 simulation-time projections, explicit before/after commit versions and correctly
+ordered same-time events. Requests have a configurable 64 KiB body limit. TaskConfig
+supports an explicit count with matching definitions; default remains six. The HTTP demo
+also proves an unqualified assignment is rejected without changing state.
