@@ -1,9 +1,29 @@
-# HeatShift AI — integrated engineering simulator
+# HeatShift AI — simulator and heat-exposure decision support
 
 Deterministic Python 3.11+ synthetic environment, worker/task simulation and versioned
 demonstration scenarios. Standard-library simulation core; optional FastAPI/Pydantic HTTP boundary. Existing models
-and public APIs are preserved. There is no Component B/C integration, risk classifier,
-exposure limit, physiological model or automatic safety reassignment.
+and public APIs are preserved. Component B adds restricted, simulation-only heat-exposure
+screening and conditional decision proposals through Python interfaces. There is no
+physiological model or automatic safety reassignment.
+
+## Current repository status — 2026-10-24
+
+The [final repository review](PRE_G5_REPOSITORY_REVIEW.md) records **529 passing tests**,
+the real HTTP smoke test, delivery reconciliation and remaining blockers. Component A
+provides the HTTP service; Component B provides `heatshift_ai.risk.assess_worker`,
+`heatshift_ai.prospective.assess_proposed_assignment` and `heatshift_ai.decision.decide`.
+Their integrated simulation cases use explicit, documented synthetic inputs.
+
+B has no HTTP routes, production input/history/forecast collector, command executor
+or durable audit store. Default simulator inputs deliberately remain insufficient for
+complete scientific screening. Conditional proposals require human review; protection
+of the affected worker and enforcement of the forecast horizon remain unresolved.
+See the [method](COMPONENT_B_RISK_METHOD.md), [decision rules](COMPONENT_B_DECISION_RULES.md)
+and [corrective verification](COMPONENT_B_CORRECTIVE_VERIFICATION.md).
+
+Codespaces, hosting, n8n, Supabase and Component C are not completed integrations.
+The [authoritative plan](COMPONENT_B_PLAN.md) lists C1 after G1–G4; **G5 is undefined**
+pending the owner's specification. This review starts neither G5 nor C1.
 
 ## Component A service — completed
 
@@ -26,8 +46,9 @@ Deployment requires a token of at least 32 characters. See `.env.example` and
 [handover/startup](COMPONENT_A_HANDOVER.md), [API contract](COMPONENT_A_API_CONTRACT.md),
 [OpenAPI](openapi.json), [all endpoint examples](examples/api/endpoint_examples.json),
 and [actual verification report](COMPONENT_A_TEST_REPORT.md).
-Final verification: **369 tests passed**, plus two matching real HTTP demonstration runs.
-B is represented only by an explicitly scripted test client; B/C are not implemented.
+Historical Component A verification: **369 tests passed**, plus two matching real HTTP
+demonstration runs. This example uses an explicitly scripted client; actual B logic
+is exercised separately in `tests/test_backend_integration.py` and `tests/test_prospective.py`.
 Single process/worker only; state and retry cache are in memory. Dockerfile is supplied
 as an optional deployment recipe and has not been built here.
 
@@ -234,9 +255,10 @@ Examples:
 - `examples/integrated_demo.py`: executable work/rest integration demonstration.
 - Earlier examples/snapshots remain historical constant-fixture examples.
 
-FINAL_VERIFICATION.md records actual tests and limits. No live sensors, calibrated
-weather model, B/C integration, field validation, n8n, Supabase, frontend or network
-service was added. In-memory event/observation retention is for demonstrations, not
+FINAL_VERIFICATION.md records the historical simulator tests and limits. No live sensors,
+calibrated weather model, field validation, n8n, Supabase or frontend is implemented.
+The A HTTP service and B Python integration are described above. In-memory
+event/observation retention is for demonstrations, not
 unbounded production streaming. Python 3.13.5 was exercised; Python 3.11 runtime and
 wheel installation remain untested. No line/branch coverage percentage was measured.
 
